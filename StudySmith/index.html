@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StudySmith — Crafting Student Success</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="StudySmith helps university students with assignments, CVs, presentations, and study notes. Simple, step-by-step academic support.">
+
+  <style>
+    :root {
+      --navy: #001F54;
+      --gold: #FFD700;
+      --gray: #6B7280;
+      --light: #F8FAFC;
+      --radius: 12px;
+      --maxw: 1100px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background-color: var(--light);
+      color: #0b1220;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('logo.jpg') no-repeat center;
+      background-size: 50%;
+      opacity: 0.05;
+      z-index: -1;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+    header {
+      background: var(--light);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: var(--maxw);
+      margin: auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .nav-logo {
+      height: 55px;
+      mix-blend-mode: multiply;
+    }
+
+    nav { display: flex; gap: 24px; }
+    nav a { font-weight: 600; color: #374151; font-size: 15px; }
+    nav a:hover { color: var(--navy); }
+
+    .cta-button {
+      background: var(--navy);
+      color: var(--gold);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,31,84,0.2);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .hero {
+      max-width: var(--maxw);
+      margin: auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      color: var(--navy);
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      color: var(--gray);
+      font-size: 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--navy);
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .services {
+      max-width: var(--maxw);
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid #eef2ff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .proof {
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 14px;
+    }
+
+    footer a { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid var(--navy);
+      }
+
+      nav.active { display: flex; }
+
+      nav a {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .hamburger { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="Images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
+      <div>
+        StudySmith
+        <div style="font-size:12px;font-weight:500;color:var(--gray)">Crafting Student Success</div>
+      </div>
+    </a>
+
+    <nav id="mobile-nav">
+      <a href="index.html" style="color:var(--navy);font-weight:700">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="skills.html">Skill Hub</a>
+      <a href="pastpapers.html">Past Papers</a>
+      <a href="request.html">Request a Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="cta-button" href="request.html">Get Help Now</a>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Academic Support, Done the Smart Way</h1>
+  <p>We help university students with assignments, presentations, CVs, and study notes.</p>
+  <a class="cta-button" href="services.html" style="background:transparent;border:2px solid var(--navy);color:var(--navy)">
+    Explore Services
+  </a>
+</section>
+
+<section id="services">
+  <h2 class="section-title">What We Do</h2>
+  <div class="services">
+    <div class="card"><h3>📘 Assignment Help</h3><p>Clear, structured academic support.</p></div>
+    <div class="card"><h3>📊 Presentations</h3><p>Clean, effective slide decks.</p></div>
+    <div class="card"><h3>📄 CVs & Resumes</h3><p>ATS-ready student CVs.</p></div>
+    <div class="card"><h3>🧠 Study Notes</h3><p>Concise revision material.</p></div>
+  </div>
+</section>
+
+<section class="proof">
+  <p>Trusted by students across engineering, business, and sciences.</p>
+</section>
+
+<section id="contact" style="background:var(--light); padding:60px 24px; text-align:center">
+  <h2 class="section-title" style="margin-bottom:20px">Ready to start?</h2>
+  <p style="color:var(--gray); margin-bottom:30px">Message us directly for a quick reply.</p>
+
+  <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap">
+    <a class="cta-button" style="background:#25D366;color:#fff"
+       onclick="window.open(CONTACT.whatsapp, '_blank')">WhatsApp</a>
+
+    <a class="cta-button"
+       style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888,#8a3ab9);color:#fff"
+       onclick="window.open(CONTACT.instagram, '_blank')">Instagram</a>
+
+    <a class="cta-button" style="background:#000;color:#fff"
+       onclick="window.open(CONTACT.tiktok, '_blank')">TikTok</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 StudySmith. All rights reserved.</p>
+  <p style="font-size:13px;opacity:0.7">
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="blog.html">Blog</a>
+  </p>
+</footer>
+
+<script src="links.js"></script>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

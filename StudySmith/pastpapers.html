@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Past Papers — StudySmith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search organized university past papers by university, paper name, and year. Study smarter with StudySmith.">
+
+  <style>
+    :root {
+      --navy: #001F54;
+      --gold: #FFD700;
+      --gray: #6B7280;
+      --light: #F8FAFC;
+      --radius: 12px;
+      --maxw: 1100px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background-color: var(--light);
+      color: #0b1220;
+      line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('logo.jpg') no-repeat center;
+      background-size: 50%;
+      opacity: 0.05;
+      z-index: -1;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+    /* Header & Nav */
+    header {
+      background: var(--light);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: var(--maxw);
+      margin: auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .nav-logo { height: 55px; mix-blend-mode: multiply; }
+
+    nav { display: flex; gap: 24px; }
+    nav a { font-weight: 600; color: #374151; font-size: 15px; }
+    nav a.active, nav a:hover { color: var(--navy); }
+
+    .cta-button {
+      background: var(--navy);
+      color: var(--gold);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,31,84,0.2); }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .content-wrapper { flex: 1; }
+
+    .hero-small {
+      text-align: center;
+      padding: 60px 20px 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .hero-small h1 { color: var(--navy); font-size: 36px; margin-bottom: 10px; }
+    .hero-small p { color: var(--gray); font-size: 18px; }
+
+    .search-card {
+      background: #fff;
+      max-width: 500px;
+      margin: 0 auto 60px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 31, 84, 0.08);
+      border: 1px solid #eef2ff;
+    }
+    .search-card h2 { margin-top: 0; margin-bottom: 20px; color: var(--navy); }
+    .form-group { margin-bottom: 15px; }
+    .form-input {
+      width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid #e5e7eb;
+      background-color: #f9fafb; font-size: 15px; color: #374151; outline: none; transition: all 0.2s;
+    }
+    .form-input:focus { background-color: #fff; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(0, 31, 84, 0.1); }
+    .search-btn {
+      width: 100%; background-color: var(--gold); color: var(--navy); padding: 14px;
+      border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.1s;
+    }
+    .search-btn:hover { background-color: #eec900; transform: translateY(-1px); }
+    .credit-text { font-size: 12px; color: var(--gray); margin-top: 15px; text-align: center; }
+
+    .grid-container {
+      max-width: var(--maxw);
+      margin: 0 auto 80px; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+    }
+    .resource-card {
+      background: #fff; border: 1px solid #eef2ff; border-radius: var(--radius); padding: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: transform 0.2s; text-align: center;
+    }
+    .resource-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .resource-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+    .resource-card h3 { margin: 0 0 8px; color: var(--navy); }
+    .resource-card span { font-size: 14px; color: var(--gray); }
+
+    /* Footer */
+    footer { background: var(--navy); color: #cbd5e1; text-align: center; padding: 40px 24px; font-size: 14px; }
+    footer a { color: var(--gold); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid var(--navy);
+      }
+      nav.active { display: flex; }
+      nav a { padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f3f4f6; }
+      .hamburger { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="Images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
+      <div>
+        StudySmith
+        <div style="font-size:12px;font-weight:500;color:var(--gray)">Crafting Student Success</div>
+      </div>
+    </a>
+
+    <nav id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="skills.html">Skill Hub</a>
+      <a href="pastpapers.html" class="active">Past Papers</a>
+      <a href="request.html">Request a Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="cta-button" href="request.html">Get Help Now</a>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </div>
+</header>
+
+<div class="content-wrapper">
+  <section class="hero-small">
+    <h1>Organized Past Papers</h1>
+    <p>Find the papers you need to ace your exams.</p>
+  </section>
+
+  <div class="search-card">
+    <h2>Past Paper Search</h2>
+    <form action="/search" method="GET">
+      <div class="form-group">
+        <input type="text" class="form-input" name="paper_name" placeholder="Paper Name (e.g. Calculus II)" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-input" name="university" placeholder="University Name" required>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-input" name="year" placeholder="Year (e.g. 2023)" required>
+      </div>
+      <button type="submit" class="search-btn">🔍 Search</button>
+      <div class="credit-text">Powered by StudySmith Academic Archive</div>
+    </form>
+  </div>
+
+  <div class="grid-container">
+    <a href="#" class="resource-card">
+      <span class="resource-icon">⚙️</span>
+      <h3>Engineering</h3>
+      <span>Mechanical, Electrical, Civil</span>
+    </a>
+    <a href="#" class="resource-card">
+      <span class="resource-icon">💼</span>
+      <h3>Business & Management</h3>
+      <span>Accounting, Marketing, HR</span>
+    </a>
+    <a href="#" class="resource-card">
+      <span class="resource-icon">🧬</span>
+      <h3>Applied Sciences</h3>
+      <span>Physics, Chemistry, Biology</span>
+    </a>
+    <a href="#" class="resource-card">
+      <span class="resource-icon">💻</span>
+      <h3>Computer Science</h3>
+      <span>Programming, Data Structures</span>
+    </a>
+    <a href="request.html" class="resource-card" style="background: #fdfdfd; border-style: dashed;">
+      <span class="resource-icon">📝</span>
+      <h3>Don't see your subject?</h3>
+      <span style="color:var(--navy); font-weight:600">Click here to request it →</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 StudySmith. All rights reserved.</p>
+  <p style="font-size:13px;opacity:0.7">
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="blog.html">Blog</a>
+  </p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
