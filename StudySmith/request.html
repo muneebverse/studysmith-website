@@ -4,187 +4,71 @@
 <meta charset="utf-8">
 <title>Request a Service | StudySmith</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Request academic support from StudySmith. Assignments, CVs, presentations, study notes, and document polishing.">
 
 <style>
-/* ================= ROOT ================= */
 :root{
   --navy:#001F54;
   --gold:#FFD700;
   --gray:#6B7280;
   --light:#F8FAFC;
-  --radius:12px;
-  --maxw:1100px;
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-family:Inter,system-ui,sans-serif;
 }
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:var(--light);
-  color:#0b1220;
-  line-height:1.6;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url('Images/logo.jpg') no-repeat center;
-  background-size:50%;
-  opacity:0.03;
-  z-index:-1;
-  pointer-events:none;
-  mix-blend-mode:multiply;
-}
-a{text-decoration:none;color:inherit;transition:.2s}
+*{box-sizing:border-box}
+body{margin:0;background:var(--light);color:#0b1220}
 
-/* ================= NAVBAR ================= */
 header{
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:100;
+  background:#fff;border-bottom:1px solid #e5e7eb;
+  position:sticky;top:0
 }
 .nav-container{
-  max-width:var(--maxw);
-  margin:auto;
-  padding:10px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  max-width:1100px;margin:auto;
+  padding:10px 24px;display:flex;
+  align-items:center;justify-content:space-between
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-  color:var(--navy);
-  font-size:20px;
-}
-.nav-logo{
-  height:55px;
-  mix-blend-mode:multiply;
-}
-nav{display:flex;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.nav-logo{height:55px;mix-blend-mode:multiply}
+nav{display:flex;gap:20px}
 nav a{font-weight:600;color:#374151}
-nav a:hover{color:var(--navy)}
 .cta-button{
-  background:var(--navy);
-  color:var(--gold);
-  padding:10px 20px;
-  border-radius:50px;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:.25s;
-}
-.cta-button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,.15);
-}
-.hamburger{
-  display:none;
-  background:none;
-  border:none;
-  font-size:28px;
-  color:var(--navy);
+  background:var(--navy);color:var(--gold);
+  padding:10px 20px;border-radius:50px;
+  font-weight:800
 }
 
-/* ================= MOBILE ================= */
-@media(max-width:768px){
-  nav{
-    display:none;
-    flex-direction:column;
-    gap:12px;
-    background:#fff;
-    position:absolute;
-    top:100%;
-    left:0;right:0;
-    padding:10px 24px;
-    border-bottom:1px solid #e5e7eb;
-  }
-  nav.active{display:flex;}
-  .hamburger{display:block;}
-}
-
-/* ================= CONTENT ================= */
 .content-wrapper{
-  max-width:var(--maxw);
-  margin:40px auto;
-  padding:0 24px;
-  animation:fadeUp .5s ease both;
+  max-width:1100px;margin:40px auto;padding:0 24px
 }
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:none}
-}
-h1{text-align:center;color:var(--navy)}
-p.intro{text-align:center;color:var(--gray);margin-bottom:40px}
-
 form{
-  background:#fff;
-  padding:30px;
-  border-radius:var(--radius);
-  box-shadow:0 10px 25px rgba(0,31,84,.08);
-  max-width:700px;
-  margin:auto;
+  background:#fff;padding:30px;border-radius:12px;
+  max-width:700px;margin:auto;
+  box-shadow:0 10px 25px rgba(0,31,84,.08)
 }
 .form-group{margin-bottom:18px}
 label{display:block;font-weight:600;margin-bottom:6px}
 .form-input{
-  width:100%;
-  padding:12px 16px;
-  border-radius:8px;
-  border:1px solid #e5e7eb;
-  background:#f9fafb;
+  width:100%;padding:12px;
+  border-radius:8px;border:1px solid #e5e7eb;
+  background:#f9fafb
 }
-.form-input:focus{
-  outline:none;
-  background:#fff;
-  border-color:var(--navy);
-  box-shadow:0 0 0 3px rgba(0,31,84,.1);
-}
-.inline-checkbox{margin:10px 0}
 .total-price{
-  font-weight:700;
-  font-size:18px;
-  color:var(--navy);
-  margin-bottom:20px;
+  font-weight:800;font-size:18px;
+  color:var(--navy);margin:10px 0
 }
 .submit-btn{
-  width:100%;
-  padding:14px;
-  background:var(--gold);
-  color:var(--navy);
-  border:none;
-  border-radius:8px;
-  font-weight:800;
-  font-size:16px;
-  cursor:pointer;
+  width:100%;padding:14px;
+  border:none;border-radius:8px;
+  background:var(--gold);color:var(--navy);
+  font-weight:900;font-size:16px;cursor:pointer
 }
-
-/* ================= REVIEW ================= */
 #review-section{
-  display:none;
-  max-width:700px;
-  margin:30px auto;
-  padding:20px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,31,84,.08);
+  display:none;max-width:700px;margin:30px auto;
+  background:#fff;padding:20px;border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,31,84,.08)
 }
-#review-section h2{text-align:center;color:var(--navy)}
-
-/* ================= FOOTER ================= */
 footer{
-  background:var(--navy);
-  color:#cbd5e1;
-  text-align:center;
-  padding:40px 24px;
+  background:var(--navy);color:#cbd5e1;
+  text-align:center;padding:30px
 }
-footer a{color:var(--gold)}
 </style>
 </head>
 
@@ -194,129 +78,148 @@ footer a{color:var(--gold)}
   <div class="nav-container">
     <a href="index.html" class="brand">
       <img src="Images/logo.jpg" class="nav-logo">
-      <div>StudySmith<div style="font-size:12px;color:var(--gray)">Crafting Student Success</div></div>
+      <div>StudySmith<br><small style="color:#6b7280">Crafting Student Success</small></div>
     </a>
-    <nav id="mobile-nav">
+    <nav>
       <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="skills.html">Skill Hub</a>
       <a href="pastpapers.html">Past Papers</a>
-      <a href="#contact">Contact</a>
     </nav>
     <a class="cta-button" href="request.html">Get Help Now</a>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
 </header>
 
 <div class="content-wrapper">
-<h1>Request a Service</h1>
-<p class="intro">Fill the form below to request one or multiple services.</p>
+<h1 style="text-align:center;color:var(--navy)">Request a Service</h1>
 
 <form id="requestForm">
-  <div class="form-group"><label>Assignment (299 PKR/page)</label><input type="number" id="assignment" class="form-input" value="0"></div>
-  <div class="form-group"><label>Presentation (150 PKR/slide)</label><input type="number" id="presentation" class="form-input" value="0"></div>
-  <div class="form-group"><label>CV / Resume (500 PKR)</label><input type="number" id="cv" class="form-input" value="0"></div>
-  <div class="form-group"><label>Study Notes (150 PKR)</label><input type="number" id="notes" class="form-input" value="0"></div>
-  <div class="form-group"><label>Document Polishing (150 PKR)</label><input type="number" id="doc" class="form-input" value="0"></div>
+  <div class="form-group"><label>Assignment (299 PKR/page)</label><input type="number" id="assignment" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Presentation (150 PKR/slide)</label><input type="number" id="presentation" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>CV / Resume (500 PKR)</label><input type="number" id="cv" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Study Notes (150 PKR)</label><input type="number" id="notes" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Document Polishing (150 PKR)</label><input type="number" id="doc" class="form-input" value="0" min="0"></div>
 
-  <div class="inline-checkbox">
-    <label><input type="checkbox" id="urgent"> Urgent (+49 PKR)</label>
-  </div>
+  <label><input type="checkbox" id="urgent"> Urgent (+49 PKR)</label>
 
-  <div class="total-price">Total Price: 0 PKR</div>
+  <div class="total-price" id="totalPrice">Total Price: 0 PKR</div>
 
-  <div class="form-group"><label>Full Name</label><input type="text" id="fullname" class="form-input" required></div>
-  <div class="form-group"><label>Email</label><input type="email" id="email" class="form-input" required></div>
-  <div class="form-group"><label>Deadline</label><input type="date" id="deadline" class="form-input" required></div>
-  <div class="form-group"><label>Time</label><input type="time" id="time" class="form-input" required></div>
+  <div class="form-group"><label>Full Name</label><input id="fullname" class="form-input" required></div>
+  <div class="form-group"><label>Email</label><input id="email" type="email" class="form-input" required></div>
+  <div class="form-group"><label>Deadline</label><input id="deadline" type="date" class="form-input" required></div>
+  <div class="form-group"><label>Time</label><input id="time" type="time" class="form-input" required></div>
 
   <button class="submit-btn" type="submit">Submit Request</button>
 </form>
 
 <div id="review-section">
-  <h2>Review Your Request</h2>
+  <h2 style="color:var(--navy)">Review Your Request</h2>
   <div id="review-details"></div>
-  <label><input type="checkbox" id="agree-terms"> I agree to the <a href="terms.html">Terms & Conditions</a> and Privacy Policy</label>
-  <br><br>
-  <button class="submit-btn" id="proceed-payment">Proceed to Payment</button>
+  <label><input type="checkbox" id="agreeTerms"> I agree to the Terms & Privacy Policy</label><br><br>
+  <button class="submit-btn" id="proceed">Proceed to Payment</button>
 </div>
 </div>
 
-<footer>
-  <p>© 2025 StudySmith</p>
-</footer>
+<!-- ================= NETLIFY FORM ================= -->
+<form
+  name="studysmith-orders"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  action="payment.html"
+  hidden
+>
+  <input name="bot-field">
+  <input type="hidden" name="order_id">
+  <input type="hidden" name="full_name">
+  <input type="hidden" name="email">
+  <input type="hidden" name="deadline">
+  <input type="hidden" name="time">
+  <input type="hidden" name="assignment">
+  <input type="hidden" name="presentation">
+  <input type="hidden" name="cv">
+  <input type="hidden" name="notes">
+  <input type="hidden" name="document_polishing">
+  <input type="hidden" name="urgent">
+  <input type="hidden" name="total_price">
+</form>
+
+<footer>© 2025 StudySmith</footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById('mobile-nav').classList.toggle('active');
-}
+const assignment = document.getElementById('assignment');
+const presentation = document.getElementById('presentation');
+const cv = document.getElementById('cv');
+const notes = document.getElementById('notes');
+const doc = document.getElementById('doc');
+const urgent = document.getElementById('urgent');
+const totalPrice = document.getElementById('totalPrice');
+const requestForm = document.getElementById('requestForm');
+const reviewSection = document.getElementById('review-section');
+const reviewDetails = document.getElementById('review-details');
+const proceed = document.getElementById('proceed');
+const agreeTerms = document.getElementById('agreeTerms');
+const fullname = document.getElementById('fullname');
+const email = document.getElementById('email');
+const deadline = document.getElementById('deadline');
+const time = document.getElementById('time');
 
-const assignment=document.getElementById('assignment');
-const presentation=document.getElementById('presentation');
-const cv=document.getElementById('cv');
-const notes=document.getElementById('notes');
-const doc=document.getElementById('doc');
-const urgent=document.getElementById('urgent');
-const total=document.querySelector('.total-price');
+function price(){
+  let t =
+    assignment.value*299 +
+    presentation.value*150 +
+    cv.value*500 +
+    notes.value*150 +
+    doc.value*150;
 
-const form=document.getElementById('requestForm');
-const reviewSection=document.getElementById('review-section');
-const reviewDetails=document.getElementById('review-details');
-const proceedBtn=document.getElementById('proceed-payment');
-const agreeTerms=document.getElementById('agree-terms');
-
-function generateOrderID(){
-  return 'SS-'+Date.now();
-}
-
-function updateTotal(){
-  let t=assignment.value*299 + presentation.value*150 + cv.value*500 + notes.value*150 + doc.value*150;
-  if(urgent.checked) t+=49;
-  total.textContent=`Total Price: ${t} PKR`;
+  if(urgent.checked) t += 49;
+  totalPrice.textContent = `Total Price: ${t} PKR`;
   return t;
 }
 
-assignment.oninput=presentation.oninput=cv.oninput=notes.oninput=doc.oninput=urgent.onchange=()=>{ updateTotal(); displayOrderSummary(); };
-updateTotal();
+document.querySelectorAll('#requestForm input').forEach(i =>
+  i.addEventListener('input', price)
+);
+price();
 
-function displayOrderSummary(){
-  const orderID = localStorage.getItem('orderID') || '';
-  const status = localStorage.getItem('orderStatus') || 'Pending Payment';
-  const totalPrice = updateTotal();
-  reviewDetails.innerHTML = `
-    <p><strong>Order ID:</strong> ${orderID}</p>
-    <p><strong>Total Price:</strong> ${totalPrice} PKR</p>
-    <p><strong>Status:</strong> ${status}</p>
-  `;
-}
-
-form.addEventListener('submit', e=>{
+requestForm.addEventListener('submit', e => {
   e.preventDefault();
-  const orderID = generateOrderID();
-  localStorage.setItem('orderID', orderID);
-  localStorage.setItem('orderStatus', 'Pending Payment');
-  localStorage.setItem('total_price', updateTotal());
-  localStorage.setItem('fullname', fullname.value);
-  localStorage.setItem('email', email.value);
-  localStorage.setItem('deadline', deadline.value);
-  localStorage.setItem('time', time.value);
-  localStorage.setItem('assignment', assignment.value);
-  localStorage.setItem('presentation', presentation.value);
-  localStorage.setItem('cv', cv.value);
-  localStorage.setItem('notes', notes.value);
-  localStorage.setItem('document_polishing', doc.value);
-  localStorage.setItem('urgent', urgent.checked ? 'Yes' : 'No');
 
-  displayOrderSummary();
-  form.style.display='none';
-  reviewSection.style.display='block';
+  const id = 'SS-' + Date.now();
+  localStorage.setItem('orderID', id);
+  localStorage.setItem('total_price', price());
+
+  reviewDetails.innerHTML = `
+    <p><strong>Order ID:</strong> ${id}</p>
+    <p><strong>Total:</strong> ${price()} PKR</p>
+    <p>Status: Pending Payment</p>
+  `;
+
+  requestForm.style.display = 'none';
+  reviewSection.style.display = 'block';
 });
 
-proceedBtn.addEventListener('click', ()=>{
-  if(!agreeTerms.checked){ alert('Please accept Terms & Conditions'); return; }
-  // Redirect to payment.html after saving all data
-  window.location.href = 'payment.html';
+proceed.addEventListener('click', () => {
+  if(!agreeTerms.checked){
+    alert('Please accept Terms & Privacy Policy');
+    return;
+  }
+
+  const f = document.forms['studysmith-orders'];
+  f.order_id.value = localStorage.getItem('orderID');
+  f.full_name.value = fullname.value;
+  f.email.value = email.value;
+  f.deadline.value = deadline.value;
+  f.time.value = time.value;
+  f.assignment.value = assignment.value;
+  f.presentation.value = presentation.value;
+  f.cv.value = cv.value;
+  f.notes.value = notes.value;
+  f.document_polishing.value = doc.value;
+  f.urgent.value = urgent.checked ? 'Yes' : 'No';
+  f.total_price.value = price();
+
+  f.submit();
 });
 </script>
 
