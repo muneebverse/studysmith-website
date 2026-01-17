@@ -2,183 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Payment Information | StudySmith</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-:root {
-  --navy: #001F54;
-  --gold: #FFD700;
-  --gray: #6B7280;
-  --light: #F8FAFC;
-  font-family: Inter, system-ui, sans-serif;
+<title>Secure Payment Checkout | StudySmith</title>
+<meta name="description" content="Complete your secure payment for StudySmith academic services. We support Bank Transfer, JazzCash, and EasyPaisa.">
+<link rel="canonical" href="https://www.studysmith.online/payment.html">
+<link rel="icon" href="assets/images/logo.jpg">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6252714666936335"
+     crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "StudySmith",
+  "url": "https://www.studysmith.online",
+  "logo": "https://www.studysmith.online/assets/images/logo.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "billing support",
+    "telephone": "+92-326-4213612",
+    "url": "https://wa.me/923264213612"
+  }
 }
+</script>
 
-body { margin: 0; background: var(--light); color: #0b1220; line-height: 1.5; }
-
-.box {
-  max-width: 600px; /* Slimmer look for payment */
-  margin: 60px auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,31,84,.08);
-}
-
-h1, h2 { color: var(--navy); margin-bottom: 15px; }
-
-/* Order Summary Styling */
-.summary {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-}
-.summary p { margin: 6px 0; }
-
-/* PAYMENT CARD STYLING */
-.payment-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* This removes the large vertical gaps */
-  margin-bottom: 20px;
-}
-
-.payment-card {
-  display: flex;
-  align-items: center;
-  padding: 14px 18px;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: #fff;
-  margin-top: 0 !important; /* Overriding previous label styles */
-}
-
-.payment-card:hover {
-  border-color: var(--navy);
-  background-color: #fcfcfc;
-}
-
-/* Highlight the card when the checkbox inside is checked */
-.payment-card:has(input:checked) {
-  border-color: var(--navy);
-  background-color: #f0f7ff;
-  box-shadow: 0 4px 12px rgba(0, 31, 84, 0.08);
-}
-
-.method-logo {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-  margin-right: 15px;
-}
-
-.method-name {
-  font-weight: 600;
-  color: var(--navy);
-  flex-grow: 1;
-}
-
-.pay-input {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--navy);
-}
-
-/* Terms and Conditions Section */
-.terms-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 20px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Button Styling */
-button {
-  width: 100%; /* Full width button looks better on mobile */
-  margin-top: 25px;
-  background: var(--navy);
-  color: var(--gold);
-  padding: 16px 24px;
-  border: none;
-  border-radius: 50px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: 0.2s;
-  font-size: 16px;
-}
-
-button:hover { transform: translateY(-2px); opacity: 0.9; }
-
-/* QR Section */
-.qr-section {
-  display: none;
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px dashed #cbd5e1;
-}
-
-.qr-section img {
-  max-width: 240px;
-  border: 1px solid #e5e7eb;
-  padding: 12px;
-  border-radius: 12px;
-  background: #fff;
-}
-
-.whatsapp-btn {
-  display: none;
-  margin-top: 15px;
-  background: #25D366;
-  color: #fff;
-}
-
-footer {
-  background: var(--navy);
-  color: #cbd5e1;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 60px;
-}
-
-footer a { color: var(--gold); text-decoration: none; }
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
 
-<div class="box">
+<div class="payment-box">
   <h1>Payment Information</h1>
 
   <h2>Order Summary</h2>
   <div class="summary" id="orderSummary"></div>
 
   <h2>Select Payment Method</h2>
-  <form id="paymentForm">
+  
+  <form id="paymentForm" name="payment_attempt" method="POST" data-netlify="true" style="box-shadow:none; padding:0; max-width:none;">
+    
+    <input type="hidden" name="form-name" value="payment_attempt">
+    <input type="hidden" name="Order_ID" id="hiddenOrderID">
+    <input type="hidden" name="Plan_Name" id="hiddenPlan">
+    <input type="hidden" name="Amount" id="hiddenAmount">
+    <input type="hidden" name="Payment_Method" id="hiddenMethod">
+
     <div class="payment-group">
       
       <label class="payment-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2830/2830284.png" class="method-logo" alt="Bank">
+        <img src="assets/images/bank-qr.jpeg" class="method-logo" alt="Bank">
         <span class="method-name">Bank Transfer</span>
-        <input type="checkbox" class="pay pay-input" value="bank">
+        <input type="checkbox" class="pay pay-input" name="method_selection" value="bank">
       </label>
 
       <label class="payment-card">
-        <img src="Images/jazzcash.jpg" class="method-logo" alt="JazzCash">
+        <img src="assets/images/jazzcash.jpg" class="method-logo" alt="JazzCash">
         <span class="method-name">JazzCash</span>
-        <input type="checkbox" class="pay pay-input" value="jazzcash">
+        <input type="checkbox" class="pay pay-input" name="method_selection" value="jazzcash">
       </label>
 
       <label class="payment-card">
-        <img src="Images/easypaisa.jpg" class="method-logo" alt="EasyPaisa">
+        <img src="assets/images/easypaisa.jpg" class="method-logo" alt="EasyPaisa">
         <span class="method-name">EasyPaisa</span>
-        <input type="checkbox" class="pay pay-input" value="easypaisa">
+        <input type="checkbox" class="pay pay-input" name="method_selection" value="easypaisa">
       </label>
 
     </div>
@@ -188,7 +76,7 @@ footer a { color: var(--gold); text-decoration: none; }
       <span>I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a></span>
     </label>
 
-    <button type="submit">Show Payment QR</button>
+    <button type="submit" class="submit-btn" style="border-radius:50px;">Show Payment QR</button>
   </form>
 
   <div class="qr-section" id="qrSection">
@@ -196,7 +84,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <p id="qrText" style="color:var(--gray); font-size: 14px; margin-bottom: 15px;"></p>
     <img id="qrImage" alt="Payment QR">
     <br>
-    <button class="whatsapp-btn" id="whatsappBtn">Submit Payment Proof</button>
+    <button class="whatsapp-btn submit-btn" id="whatsappBtn" style="border-radius:50px;">Submit Payment Proof</button>
   </div>
 </div>
 
@@ -206,30 +94,53 @@ footer a { color: var(--gold); text-decoration: none; }
 </footer>
 
 <script>
-// ==== LOAD ORDER DATA ====
-const orderID = localStorage.getItem('orderID');
-const totalPrice = localStorage.getItem('total_price') || "0";
-const orderStatus = localStorage.getItem('orderStatus') || "Pending Payment";
+// ============================================
+// 1. LOAD & DISPLAY ORDER DATA
+// ============================================
+const urlParams = new URLSearchParams(window.location.search);
+const paramPlan = urlParams.get('plan');
+const paramPrice = urlParams.get('price');
 
+let orderID, totalPrice, orderStatus, planName;
+
+// SCENARIO A: User clicked a plan on Pricing Page (Direct Link)
+if (paramPlan && paramPrice) {
+  orderID = "DIR-" + Math.floor(1000 + Math.random() * 9000); 
+  totalPrice = paramPrice;
+  orderStatus = "Ready for Payment";
+  planName = paramPlan;
+} 
+// SCENARIO B: User filled out the Request Form (LocalStorage)
+else {
+  orderID = localStorage.getItem('orderID');
+  totalPrice = localStorage.getItem('total_price') || "0";
+  orderStatus = localStorage.getItem('orderStatus') || "Pending Payment";
+  planName = "Custom Service Request"; 
+}
+
+// Render Summary
 const orderDiv = document.getElementById('orderSummary');
 if(!orderID){
-  orderDiv.innerHTML = "<p style='color:red'>No order found. Please submit a request first.</p>";
+  orderDiv.innerHTML = "<p style='color:red'>No order found. Please submit a request or select a plan first.</p>";
 } else {
   orderDiv.innerHTML = `
     <p><strong>Order ID:</strong> ${orderID}</p>
+    <p><strong>Plan:</strong> ${planName}</p>
     <p><strong>Status:</strong> ${orderStatus}</p>
-    <p><strong>Total Amount:</strong> ${totalPrice} PKR</p>
+    <p style="font-size: 1.2em; color: var(--navy);"><strong>Total Amount:</strong> ${totalPrice} PKR</p>
   `;
 }
 
-// ==== PAYMENT METHODS DATA ====
+// ============================================
+// 2. PAYMENT METHODS & UI LOGIC
+// ============================================
 const qrCodes = {
-  bank: { img: "Images/bank-qr.png", text: "Bank Transfer - Scan QR to pay via your bank app" },
-  jazzcash: { img: "Images/jazzcash-qr.png", text: "JazzCash - Scan QR to pay via JazzCash app" },
-  easypaisa: { img: "Images/easypaisa-qr.png", text: "EasyPaisa - Scan QR to pay via EasyPaisa app" }
+  bank: { img: "assets/images/bank-qr.jpeg", text: "Bank Transfer - Scan QR to pay via your bank app" },
+  jazzcash: { img: "assets/images/jazzcash-qr.jpg", text: "JazzCash - Scan QR to pay via JazzCash app" },
+  easypaisa: { img: "assets/images/easypaisa-qr.jpeg", text: "EasyPaisa - Scan QR to pay via EasyPaisa app" }
 };
 
-// SINGLE SELECT CHECKBOX LOGIC
+// Ensure only one checkbox is selected at a time
 const boxes = document.querySelectorAll('.pay');
 boxes.forEach(b => {
   b.addEventListener('change', () => {
@@ -239,7 +150,9 @@ boxes.forEach(b => {
   });
 });
 
-// ==== FORM SUBMISSION ====
+// ============================================
+// 3. FORM SUBMISSION (NETLIFY + QR SHOW)
+// ============================================
 const paymentForm = document.getElementById('paymentForm');
 const qrSection = document.getElementById('qrSection');
 const qrImage = document.getElementById('qrImage');
@@ -247,10 +160,18 @@ const qrText = document.getElementById('qrText');
 const whatsappBtn = document.getElementById('whatsappBtn');
 const agreeTerms = document.getElementById('agreeTerms');
 
+// Hidden Input References
+const hiddenOrderID = document.getElementById('hiddenOrderID');
+const hiddenPlan = document.getElementById('hiddenPlan');
+const hiddenAmount = document.getElementById('hiddenAmount');
+const hiddenMethod = document.getElementById('hiddenMethod');
+
 paymentForm.addEventListener('submit', e => {
-  e.preventDefault();
+  e.preventDefault(); // Stop page reload
+
   const selected = document.querySelector('.pay:checked');
   
+  // Validation
   if(!selected){
     alert("Please select a payment method");
     return;
@@ -260,20 +181,41 @@ paymentForm.addEventListener('submit', e => {
     return;
   }
 
+  // A. Populate Hidden Inputs for Netlify
+  hiddenOrderID.value = orderID;
+  hiddenPlan.value = planName;
+  hiddenAmount.value = totalPrice;
+  hiddenMethod.value = selected.value;
+
+  // B. Show QR Code (Immediate UI Feedback)
   const method = qrCodes[selected.value];
   qrImage.src = method.img;
   qrText.textContent = method.text;
   qrSection.style.display = 'block';
   whatsappBtn.style.display = 'inline-block';
   qrSection.scrollIntoView({ behavior: 'smooth' });
+
+  // C. Send Data to Netlify (Background Fetch)
+  const myFormData = new FormData(paymentForm);
+  
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(myFormData).toString()
+  })
+  .then(() => console.log("Netlify notification sent successfully"))
+  .catch(error => console.error("Notification failed", error));
 });
 
-// ==== WHATSAPP REDIRECT ====
+// ============================================
+// 4. WHATSAPP BUTTON LOGIC
+// ============================================
 whatsappBtn.addEventListener('click', () => {
   const msg = `Hello StudySmith,
 I have completed my payment.
 
 Order ID: ${orderID}
+Plan: ${planName}
 Total Paid: ${totalPrice} PKR
 
 Please find the payment screenshot attached.`;
