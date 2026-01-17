@@ -2,143 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Services | StudySmith — Crafting Student Success</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Affordable academic services: Assignments, Presentations, CVs, and Notes. Expert help for university students.">
+  
+  <title>Our Services - Assignments, Presentations & CVs | StudySmith</title>
+  <meta name="description" content="Explore StudySmith's academic services: Assignment help, professional CV writing, and presentation design for university students. Affordable and fast.">
+  <link rel="canonical" href="https://www.studysmith.online/services.html">
+  <link rel="icon" href="assets/images/logo.jpg">
 
-  <style>
-    :root {
-      --navy: #001F54;
-      --gold: #FFD700;
-      --gray: #6B7280;
-      --light: #F8FAFC;
-      --radius: 12px;
-      --maxw: 1100px;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    }
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6252714666936335"
+     crossorigin="anonymous"></script>
 
-    * { box-sizing: border-box; }
-    
-    body {
-      margin: 0;
-      background-color: var(--light);
-      color: #0b1220;
-      line-height: 1.6;
-      position: relative; 
-    }
-
-    body::before {
-      content: "";
-      position: fixed; inset:0;
-      background: url('logo.jpg') no-repeat center center;
-      background-size: 50%; opacity: 0.05;
-      z-index: -1; pointer-events: none; mix-blend-mode: multiply; 
-    }
-
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
-
-    /* Header */
-    header {
-      background: var(--light);
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky; top:0; z-index: 100;
-    }
-
-    .nav-container {
-      max-width: var(--maxw); margin:auto; padding:10px 24px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-
-    .brand { display:flex; align-items:center; gap:12px; font-weight:800; color:var(--navy); font-size:20px; }
-    .nav-logo { height:55px; mix-blend-mode:multiply; }
-
-    nav { display:flex; gap:24px; }
-    nav a { font-weight:600; color:#374151; font-size:15px; }
-    nav a:hover, nav a.active { color:var(--navy); }
-
-    .cta-button {
-      background: var(--navy); color: var(--gold); padding:10px 20px; border-radius:50px;
-      font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:6px;
-    }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,31,84,0.2); }
-
-    .hamburger { display:none; background:none; border:none; font-size:28px; color:var(--navy); cursor:pointer; }
-
-    /* Hero */
-    .hero { max-width:var(--maxw); margin:auto; padding:80px 24px 40px; text-align:center; }
-    .hero h1 { color:var(--navy); font-size:42px; margin-bottom:16px; line-height:1.2; }
-    .hero p { max-width:600px; margin:0 auto 32px; color:var(--gray); font-size:18px; }
-    .price-hook-box {
-        background: rgba(255, 215, 0, 0.15); border: 1px solid var(--gold); color: var(--navy);
-        padding: 16px 24px; border-radius: var(--radius); max-width: 700px; margin: 0 auto 40px;
-        font-weight: 500; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-
-    /* Services Grid */
-    .section-title { text-align:center; color:var(--navy); font-size:28px; margin-bottom:40px; }
-    .services-grid { max-width:var(--maxw); margin:0 auto 80px; padding:0 24px; display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:24px; }
-    .service-card { background:#fff; padding:30px; border-radius:var(--radius); border:1px solid #eef2ff; box-shadow:0 4px 20px rgba(0,0,0,0.03); display:flex; flex-direction:column; height:100%; transition: transform 0.2s, border-color 0.2s; }
-    .service-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-    .service-icon { font-size:32px; margin-bottom:16px; display:block; }
-    .service-card h3 { margin-top:0; color:var(--navy); margin-bottom:12px; font-size:20px; }
-    .service-card p { color:var(--gray); font-size:15px; margin-bottom:20px; flex-grow:1; }
-    
-    /* UPDATED SERVICE LIST STYLES */
-    .service-list {
-      margin-bottom: 24px;
-      text-align: left;
-      list-style: none;        /* ✅ removes default bullet */
-      padding-left: 0;         /* ✅ removes extra spacing */
-    }
-
-    .service-list li {
-      font-size: 14px;
-      color: #4b5563;
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .service-list li::before {
-      content: "•";
-      color: var(--navy);      /* ✅ navy blue dot only */
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    .service-btn-outline { text-align:center; display:block; width:100%; padding:10px; border:2px solid var(--navy); color:var(--navy); border-radius:8px; font-weight:600; font-size:14px; }
-    .service-btn-outline:hover { background:var(--navy); color:#fff; }
-
-    /* Why Us */
-    .why-us { background:#fff; border-top:1px solid #e5e7eb; padding:60px 24px; }
-    .why-grid { max-width:var(--maxw); margin:auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:30px; text-align:center; }
-    .why-item h4 { color:var(--navy); margin-bottom:8px; font-size:18px; }
-    .why-item p { color:var(--gray); font-size:14px; }
-
-    /* Footer */
-    footer { background: var(--navy); color:#cbd5e1; text-align:center; padding:40px 24px; font-size:14px; }
-    footer a { color:var(--gold); }
-
-    /* Mobile */
-    @media(max-width:768px) {
-      .nav-container { justify-content:space-between; padding:15px 20px; }
-      .hamburger { display:block; order:3; }
-      .cta-button { order:2; padding:8px 16px; font-size:13px; margin-left:auto; }
-      nav { display:none; position:absolute; top:100%; left:0; width:100%; background:#fff; flex-direction:column; align-items:center; padding:20px 0; border-bottom:2px solid var(--navy); box-shadow:0 10px 20px rgba(0,0,0,0.1); z-index:999; }
-      nav.active { display:flex; }
-      nav a { padding:15px; width:100%; text-align:center; border-bottom:1px solid #f3f4f6; }
-      .hero h1 { font-size:32px; }
-      .price-hook-box { font-size:14px; text-align:left; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
 <header>
   <div class="nav-container">
     <a href="index.html" class="brand">
-      <img src="Images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
+      <img src="assets/images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
       <div>
         StudySmith
         <div style="font-size:12px;font-weight:500;color:var(--gray)">Crafting Student Success</div>
@@ -149,13 +30,13 @@
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
       <a href="pricing.html">Pricing</a>
-      <a href="skills.html">Skill Hub</a>
-      <a href="pastpapers.html">Past Papers</a>
+      <a href="https://hub.studysmith.online">Skill Hub</a>
+      <a href="https://hub.studysmith.online/pastpapers">Past Papers</a>
       <a href="request.html">Request a Service</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="cta-button" href="request.html">Get Help Now</a>
+    <a class="cta-button nav-cta" href="request.html">Get Help Now</a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
   </div>
 </header>
@@ -248,14 +129,14 @@
   
   <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap">
     <a class="cta-button" style="background:#25D366;color:#fff"
-       onclick="window.open(CONTACT.whatsapp, '_blank')">WhatsApp</a>
+       href="https://wa.me/923264213612" target="_blank">WhatsApp</a>
 
     <a class="cta-button"
        style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888,#8a3ab9);color:#fff"
-       onclick="window.open(CONTACT.instagram, '_blank')">Instagram</a>
+       href="#" target="_blank">Instagram</a>
 
     <a class="cta-button" style="background:#000;color:#fff"
-       onclick="window.open(CONTACT.tiktok, '_blank')">TikTok</a>
+       href="#" target="_blank">TikTok</a>
   </div>
 </section>
 
@@ -268,8 +149,6 @@
   </p>
 </footer>
 
-<script src="links.js"></script>
-
 <script>
   function toggleMenu() {
     document.getElementById('mobile-nav').classList.toggle('active');
@@ -277,5 +156,4 @@
 </script>
 
 </body>
-
 </html>
