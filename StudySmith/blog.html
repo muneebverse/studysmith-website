@@ -2,143 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>News & Insights — StudySmith</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Latest scholarship news, university announcements, and study tips for students.">
+  
+  <title>News & Insights - Scholarships & Education Updates | StudySmith</title>
+  <meta name="description" content="Stay updated with the latest fully funded scholarships, university exam schedules, and study tips for Pakistani students.">
+  <link rel="canonical" href="https://www.studysmith.online/blog.html">
+  <link rel="icon" href="assets/images/logo.jpg">
 
-  <style>
-    :root {
-      --navy: #001F54;
-      --gold: #FFD700;
-      --gray: #6B7280;
-      --light: #F8FAFC;
-      --radius: 12px;
-      --maxw: 1100px;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6252714666936335"
+     crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "StudySmith",
+    "url": "https://www.studysmith.online",
+    "logo": "https://www.studysmith.online/assets/images/logo.jpg",
+    "sameAs": [
+      "https://www.instagram.com/YOUR_INSTAGRAM_HERE",
+      "https://www.linkedin.com/company/YOUR_LINKEDIN_HERE",
+      "https://www.tiktok.com/@YOUR_TIKTOK_HERE" 
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+92-326-4213612",
+      "url": "https://wa.me/923264213612"
     }
+  }
+  </script>
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background-color: var(--light);
-      color: #0b1220;
-      line-height: 1.6;
-      position: relative; 
-    }
-
-    /* Background Logo */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url('logo.jpg') no-repeat center center;
-      background-size: 50%;
-      opacity: 0.05;
-      z-index: -1;
-      pointer-events: none;
-      mix-blend-mode: multiply;
-    }
-
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
-
-    /* Header */
-    header {
-      background: var(--light);
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: var(--maxw);
-      margin: auto;
-      padding: 10px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      color: var(--navy);
-      font-size: 20px;
-    }
-
-    .nav-logo { height: 55px; mix-blend-mode: multiply; }
-
-    nav { display: flex; gap: 24px; }
-    nav a { font-weight: 600; color: #374151; font-size: 15px; }
-    nav a:hover, nav a.active { color: var(--navy); }
-
-    .cta-button {
-      background: var(--navy); color: var(--gold); padding: 10px 20px;
-      border-radius: 50px; font-weight: 700; font-size: 14px;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,31,84,0.2); }
-
-    .hamburger { display: none; background: none; border: none; font-size: 28px; color: var(--navy); cursor: pointer; }
-
-    /* Hero */
-    .hero { max-width: var(--maxw); margin: auto; padding: 60px 24px 40px; text-align: center; }
-    .hero h1 { color: var(--navy); font-size: 38px; margin-bottom: 16px; line-height: 1.2; }
-    .hero p { max-width: 600px; margin: 0 auto 32px; color: var(--gray); font-size: 18px; }
-
-    /* Filter Bar */
-    .filter-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
-    .filter-btn {
-      background: transparent; border: 2px solid var(--navy); color: var(--navy);
-      padding: 8px 20px; border-radius: 50px; font-weight: 600; cursor: pointer;
-      font-size: 14px; transition: 0.2s;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--gold); }
-
-    /* Blog Grid */
-    .blog-container { max-width: var(--maxw); margin: 0 auto 80px; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 24px; }
-
-    .blog-card {
-      background: #fff; border-radius: var(--radius); border: 1px solid #eef2ff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.2s;
-      display: flex; flex-direction: column; overflow: hidden;
-    }
-    .blog-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-
-    .card-header { padding: 20px 24px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
-    .tag { background-color: #eef2ff; color: var(--navy); padding: 4px 10px; border-radius: 4px; font-weight: 700; text-transform: uppercase; font-size: 11px; }
-    .date { color: var(--gray); }
-
-    .card-body { padding: 0 24px 24px; flex-grow: 1; display: flex; flex-direction: column; }
-    .card-body h3 { margin-top: 10px; color: var(--navy); margin-bottom: 12px; font-size: 1.25rem; line-height: 1.4; }
-    .card-body p { color: var(--gray); font-size: 15px; margin: 0 0 20px 0; flex-grow: 1; }
-    .read-more { align-self: flex-start; color: var(--navy); font-weight: 700; font-size: 14px; border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
-
-    /* Footer */
-    footer { background: var(--navy); color: #cbd5e1; text-align: center; padding: 40px 24px; font-size: 14px; }
-    footer a { color: var(--gold); }
-
-    /* Mobile */
-    @media(max-width:768px){
-      .nav-container { justify-content: space-between; padding: 15px 20px; }
-      .hamburger { display: block; order: 3; }
-      .cta-button { order: 2; padding: 8px 16px; font-size: 13px; margin-left: auto; }
-      nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; align-items: center; padding: 20px 0; border-bottom: 2px solid var(--navy); box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 999; }
-      nav.active { display: flex; }
-      nav a { padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f3f4f6; }
-      .hero h1 { font-size: 32px; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
 <header>
   <div class="nav-container">
     <a href="index.html" class="brand">
-      <img src="Images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
+      <img src="assets/images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
       <div>
         StudySmith
         <div style="font-size: 12px; font-weight: 500; color: var(--gray);">Crafting Student Success</div>
@@ -149,14 +51,14 @@
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
-      <a href="skills.html">Skill Hub</a>
-      <a href="pastpapers.html">Past Papers</a>
+      <a href="https://hub.studysmith.online">Skill Hub</a>
+      <a href="https://hub.studysmith.online/pastpapers">Past Papers</a>
       <a href="blog.html" class="active">Blog</a>
       <a href="request.html">Request a Service</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="cta-button" href="request.html">Get Help Now</a>
+    <a class="cta-button nav-cta" href="request.html">Get Help Now</a>
     <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
   </div>
 </header>
@@ -164,49 +66,52 @@
 <section class="hero">
   <h1>News & Insights</h1>
   <p>Your central hub for education news, scholarship alerts, and important academic announcements.</p>
+  
   <div class="filter-bar">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Scholarships</button>
-    <button class="filter-btn">Announcements</button>
-    <button class="filter-btn">Education News</button>
-    <button class="filter-btn">Student Tips</button>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Scholarships">Scholarships</button>
+    <button class="filter-btn" data-filter="Announcements">Announcements</button>
+    <button class="filter-btn" data-filter="Education News">Education News</button>
+    <button class="filter-btn" data-filter="Student Tips">Student Tips</button>
   </div>
 </section>
 
 <div class="blog-container">
-  <article class="blog-card">
+  
+  <article class="blog-card" data-category="Scholarships">
     <div class="card-header"><span class="tag">Scholarships</span><span class="date">Dec 12, 2025</span></div>
     <div class="card-body">
       <h3>5 Fully Funded Scholarships for Pakistani Students (2025)</h3>
       <p>Struggling with tuition? Check out these top 5 domestic and international scholarships accepting applications now.</p>
-      <a href="#" class="read-more">Read Article →</a>
+      
+      <a href="blog-post-1.html" class="read-more">Read Article →</a>
     </div>
   </article>
 
-  <article class="blog-card">
+  <article class="blog-card" data-category="Announcements">
     <div class="card-header"><span class="tag">Announcements</span><span class="date">Dec 10, 2025</span></div>
     <div class="card-body">
       <h3>University Exam Schedule Updates: Fall 2025</h3>
       <p>Several major universities have updated their date sheets. Check here to see if your department is affected.</p>
-      <a href="#" class="read-more">Read Article →</a>
+      <a href="blog-post-2.html" class="read-more">Read Article →</a>
     </div>
   </article>
 
-  <article class="blog-card">
+  <article class="blog-card" data-category="Education News">
     <div class="card-header"><span class="tag">Education News</span><span class="date">Dec 08, 2025</span></div>
     <div class="card-body">
       <h3>New Grading Policy Explained: What It Means for GPA</h3>
       <p>The education board has released new grading criteria. We break down the complex terms into simple language.</p>
-      <a href="#" class="read-more">Read Article →</a>
+      <a href="blog-post-3.html" class="read-more">Read Article →</a>
     </div>
   </article>
 
-  <article class="blog-card">
+  <article class="blog-card" data-category="Student Tips">
     <div class="card-header"><span class="tag">Student Tips</span><span class="date">Dec 05, 2025</span></div>
     <div class="card-body">
       <h3>How to Balance Work and Study: A Practical Guide</h3>
       <p>Working part-time while studying? Here are 3 actionable tips to manage your time without burning out.</p>
-      <a href="#" class="read-more">Read Article →</a>
+      <a href="blog-post-4.html" class="read-more">Read Article →</a>
     </div>
   </article>
 </div>
@@ -224,6 +129,28 @@
   function toggleMenu() {
     document.getElementById('mobile-nav').classList.toggle('active');
   }
+
+  // ==== FILTER FUNCTIONALITY ====
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.blog-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || filterValue === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 </script>
 
 </body>
