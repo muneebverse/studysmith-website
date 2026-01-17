@@ -3,174 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — StudySmith</title>
-<style>
-:root {
-  --navy:#001F54; --gold:#FFD700; --gray:#6B7280; --light:#F8FAFC; --radius:12px; --maxw:1100px; font-family:'Inter', system-ui, -apple-system, sans-serif;
-}
-* { box-sizing:border-box; }
-body { margin:0; background:var(--light); color:#0b1220; line-height:1.6; }
-body::before { content:""; position:fixed; inset:0; background:url('logo.jpg') no-repeat center; background-size:50%; opacity:0.05; z-index:-1; pointer-events:none; mix-blend-mode:multiply; }
-a { text-decoration:none; color:inherit; transition:0.2s; }
 
-/* Header */
-header { background:var(--light); border-bottom:1px solid #e5e7eb; position:sticky; top:0; z-index:100; }
-.nav-container { max-width:var(--maxw); margin:auto; padding:10px 24px; display:flex; align-items:center; justify-content:space-between; }
-.brand { display:flex; align-items:center; gap:12px; font-weight:800; color:var(--navy); font-size:20px; }
-.nav-logo { height:55px; mix-blend-mode:multiply; }
-nav { display:flex; gap:24px; }
-nav a { font-weight:600; color:#374151; font-size:15px; }
-nav a:hover { color:var(--navy); }
-.cta-button { background:var(--navy); color:var(--gold); padding:10px 20px; border-radius:50px; font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:6px; }
-.cta-button:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,31,84,0.2); }
+<title>Pricing & Packages - Affordable Student Rates | StudySmith</title>
+<meta name="description" content="Check out StudySmith's affordable pricing for assignments, CV writing, and presentations. Packages start from just 699 PKR.">
+<link rel="canonical" href="https://www.studysmith.online/pricing.html">
+<link rel="icon" href="assets/images/logo.jpg">
 
-/* Cards */
-section { text-align:center; padding:60px 24px; }
-.card-container { display:flex; justify-content:center; flex-wrap:wrap; gap:24px; max-width:var(--maxw); margin:auto; }
-.card { background:#fff; border:2px solid var(--navy); border-radius:var(--radius); padding:30px 20px; width:280px; transition: transform 0.3s, box-shadow 0.3s; text-align:center; }
-.card:hover { transform:translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.1); }
-.card h2 { color:var(--navy); margin-bottom:10px; }
-.price { font-size:28px; color:var(--gold); margin:15px 0; }
-.features { list-style:none; padding:0; margin-bottom:20px; text-align:left; }
-.features li { margin:10px 0; }
-.btn { display:inline-block; padding:10px 20px; background-color:var(--navy); color:var(--gold); border-radius:5px; font-weight:bold; transition:0.3s; }
-.btn:hover { background-color:var(--gold); color:var(--navy); }
-.recommended { border:3px solid var(--gold); }
-.recommended h2 { color:var(--gold); }
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6252714666936335"
+     crossorigin="anonymous"></script>
 
-/* Footer */
-footer { background:var(--navy); color:#cbd5e1; text-align:center; padding:40px 24px; font-size:14px; }
-footer a { color:var(--gold); }
-
-/* Mobile */
-@media (max-width:768px){
-  nav { display:none; position:absolute; top:100%; left:0; width:100%; background:#fff; flex-direction:column; align-items:center; padding:20px 0; border-bottom:2px solid var(--navy);}
-  nav.active{ display:flex; }
-  nav a{ padding:15px; width:100%; text-align:center; border-bottom:1px solid #f3f4f6; }
-}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
 <header>
   <div class="nav-container">
-    <a href="index22.html" class="brand">
-      <img src="logo.jpg" alt="StudySmith Logo" class="nav-logo">
+    <a href="index.html" class="brand">
+      <img src="assets/images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
       <div>StudySmith<div style="font-size:12px;font-weight:500;color:var(--gray)">Crafting Student Success</div></div>
     </a>
     <nav id="mobile-nav">
-      <a href="index22.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html" style="color:var(--navy); font-weight:700">Pricing</a>
-      <a href="skills.html">Skill Hub</a>
-      <a href="pastpapers.html">Past Papers</a>
+      <a href="https://hub.studysmith.online">Skill Hub</a>
+      <a href="https://hub.studysmith.online/pastpapers.html">Past Papers</a>
       <a href="request.html">Request a Service</a>
     </nav>
-    <a class="cta-button" href="request.html">Get Help Now</a>
+    <a class="cta-button nav-cta" href="request.html">Get Help Now</a>
   </div>
 </header>
 
-<!-- Bundle Plans -->
 <section>
   <h1>Bundle Plans</h1>
   <p>Best value packages — most students choose bundles.</p>
 
   <div class="card-container">
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Basic – Assignment Starter</h2>
-      <div class="price">₨699</div>
+      <div class="price">699 PKR</div>
       <ul class="features">
         <li>Assignment Writing: 15 pages</li>
         <li>Formatting & References</li>
         <li>Free 48-Hour Revision</li>
+        <li>PDF Format</li>
       </ul>
-      <a href="request.html?plan=basic" class="btn">Get Started</a>
+      <a href="payment.html?plan=Basic Package&price=699" class="btn">Get Started</a>
     </div>
 
-    <div class="card recommended">
+    <div class="card pricing-card recommended">
       <h2>Standard – Smart Student</h2>
       <p style="color:var(--gold);font-weight:700;">Most Chosen by Students</p>
-      <div class="price">₨1,199</div>
+      <div class="price">1,199 PKR</div>
       <ul class="features">
         <li>Assignment Writing: 20 pages</li>
         <li>Plagiarism Check Included</li>
         <li>Formatting & References</li>
         <li>Free 48-Hour Revision</li>
+        <li>PDF Format</li>
       </ul>
-      <a href="request.html?plan=standard" class="btn">Get Started</a>
+      <a href="payment.html?plan=Standard Package&price=1199" class="btn">Get Started</a>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Premium – Topper Pack</h2>
-      <div class="price">₨1,999</div>
+      <div class="price">1,999 PKR</div>
       <ul class="features">
         <li>Assignment Writing: 25 pages</li>
         <li>Plagiarism Check</li>
         <li>Presentation: 10 slides</li>
         <li>Priority Delivery</li>
         <li>Free 48-Hour Revision</li>
+        <li>PDF Format</li>
       </ul>
-      <a href="request.html?plan=premium" class="btn">Get Started</a>
+      <a href="payment.html?plan=Premium Package&price=1999" class="btn">Get Started</a>
     </div>
   </div>
 </section>
 
-<!-- Individual Services -->
 <section>
   <h1>Individual Service Prices</h1>
   <p>Prefer single services? Choose below. Prices in PKR.</p>
 
   <div class="card-container">
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Assignment Writing</h2>
-      <div class="price">₨49 / page</div>
+      <div class="price">49 PKR / page</div>
       <a href="request.html?service=assignment" class="btn">Request Now</a>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Presentation Design</h2>
-      <div class="price">₨99 / slide</div>
+      <div class="price">99 PKR / slide</div>
       <a href="request.html?service=presentation" class="btn">Request Now</a>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>CV / Resume (Premium)</h2>
-      <div class="price">₨499</div>
-      <a href="request.html?service=cv" class="btn">Request Now</a>
+      <div class="price">499 PKR</div>
+      <a href="payment.html?plan=Premium CV Design&price=499" class="btn">Request Now</a>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Plagiarism Check</h2>
-      <div class="price">₨299 (up to 50 pages)</div>
-      <a href="request.html?service=plagiarism" class="btn">Request Now</a>
+      <div class="price">299 PKR (up to 50 pages)</div>
+      <a href="payment.html?plan=Plagiarism Check&price=299" class="btn">Request Now</a>
     </div>
   </div>
 </section>
 
-<!-- Add-ons -->
 <section>
   <h1>Add-Ons</h1>
   <p>Optional extras to enhance your order.</p>
 
   <div class="card-container">
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Urgent / Same-Day Delivery</h2>
-      <div class="price">+ ₨199</div>
+      <div class="price">+ 79 PKR</div>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Extra Revision</h2>
-      <div class="price">+ ₨99</div>
+      <div class="price">+ 99 PKR</div>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>In-Depth Feedback Report</h2>
-      <div class="price">+ ₨149</div>
+      <div class="price">+ 149 PKR</div>
     </div>
 
-    <div class="card">
+    <div class="card pricing-card">
       <h2>Extra Presentation Slide</h2>
-      <div class="price">₨89 / slide</div>
+      <div class="price">+ 89 PKR / slide</div>
     </div>
   </div>
 </section>
