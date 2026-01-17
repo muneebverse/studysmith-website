@@ -1,0 +1,919 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+  --navy: #001F54;
+  --gold: #FFD700;
+  --gray: #6B7280;
+  --light: #F8FAFC;
+  --radius: 12px;
+  --maxw: 1100px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--light);
+  color: #0b1220;
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Only hide horizontal scroll, allow vertical */
+  overflow-y: auto;   /* Force vertical scrolling */
+}
+}
+
+/* Background Watermark (Used in most pages) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('logo.jpg') no-repeat center center; /* Ensure image path is correct relative to CSS */
+  background-size: 50%;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.2s;
+}
+
+h1, h2, h3, h4 {
+  color: var(--navy);
+}
+
+main, .content-wrapper {
+  flex: 1; /* Ensures footer sticks to bottom */
+  width: 100%;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+header {
+  background: #fff; /* or var(--light) depending on file, unifying to white/light */
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  top: auto;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: var(--maxw);
+  margin: auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.nav-logo {
+  height: 55px;
+  mix-blend-mode: multiply;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  font-weight: 600;
+  color: #374151;
+  font-size: 15px;
+}
+
+nav a:hover, nav a.active {
+  color: var(--navy);
+}
+
+/* Mobile Menu Toggle */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* =========================================
+   3. BUTTONS
+   ========================================= */
+.cta-button {
+  background: var(--navy);
+  color: var(--gold);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 31, 84, 0.2);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--navy);
+  color: var(--gold);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================================
+   4. FORMS & INPUTS
+   ========================================= */
+form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0, 31, 84, .08);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-input:focus {
+  background-color: #fff;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(0, 31, 84, 0.1);
+}
+
+/* =========================================
+   5. SECTIONS & CARDS (Generics)
+   ========================================= */
+section {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.card-container, .grid-container, .services-grid, .blog-container {
+  max-width: var(--maxw);
+  margin: 0 auto 80px;
+  display: grid;
+  gap: 24px;
+}
+
+/* Adjust grid columns based on context */
+.card-container { display: flex; flex-wrap: wrap; justify-content: center; }
+.services-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.blog-container { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.grid-container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   6. PAGE SPECIFIC: HOME (index.html)
+   ========================================= */
+.hero {
+  max-width: var(--maxw);
+  margin: auto;
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: var(--gray);
+  font-size: 18px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: var(--maxw);
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+   7. PAGE SPECIFIC: PRICING
+   ========================================= */
+.pricing-card {
+  border: 2px solid var(--navy);
+  width: 280px;
+  text-align: center;
+}
+
+.pricing-card .price {
+  font-size: 28px;
+  color: var(--gold);
+  margin: 15px 0;
+}
+
+.pricing-card .features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.pricing-card .features li {
+  margin: 10px 0;
+}
+
+.recommended {
+  border: 3px solid var(--gold);
+}
+
+.recommended h2 {
+  color: var(--gold);
+}
+
+/* =========================================
+   8. PAGE SPECIFIC: REQUEST SERVICE
+   ========================================= */
+.total-price {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--navy);
+  margin: 10px 0;
+}
+
+#review-section {
+  display: none;
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 31, 84, .08);
+}
+
+/* =========================================
+   9. PAGE SPECIFIC: SERVICES
+   ========================================= */
+.price-hook-box {
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  padding: 16px 24px;
+  border-radius: var(--radius);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid #eef2ff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.service-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.service-list {
+  margin-bottom: 24px;
+  text-align: left;
+  list-style: none;
+  padding-left: 0;
+}
+
+.service-list li {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.service-list li::before {
+  content: "•";
+  color: var(--navy);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.service-btn-outline {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.service-btn-outline:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.why-us {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 60px 24px;
+}
+
+.why-grid {
+  max-width: var(--maxw);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+/* =========================================
+   10. PAGE SPECIFIC: PAST PAPERS
+   ========================================= */
+.hero-small {
+  text-align: center;
+  padding: 60px 20px 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-card {
+  background: #fff;
+  max-width: 500px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 31, 84, 0.08);
+  border: 1px solid #eef2ff;
+}
+
+.search-btn {
+  width: 100%;
+  background-color: var(--gold);
+  color: var(--navy);
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.1s;
+}
+
+.search-btn:hover {
+  background-color: #eec900;
+  transform: translateY(-1px);
+}
+
+.credit-text {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 15px;
+  text-align: center;
+}
+
+.resource-card {
+  background: #fff;
+  border: 1px solid #eef2ff;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.resource-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* =========================================
+   11. PAGE SPECIFIC: SKILLS HUB
+   ========================================= */
+.notice {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px dashed #e5e7eb;
+  border-radius: var(--radius);
+  font-size: 15px;
+  color: var(--gray);
+  font-style: italic;
+  text-align: center;
+}
+
+/* =========================================
+   12. PAGE SPECIFIC: BLOG
+   ========================================= */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--navy);
+  color: var(--gold);
+}
+
+.blog-card {
+  border: 1px solid #eef2ff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 20px 24px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.tag {
+  background-color: #eef2ff;
+  color: var(--navy);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.date {
+  color: var(--gray);
+}
+
+.card-body {
+  padding: 0 24px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.read-more {
+  align-self: flex-start;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 14px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+/* =========================================
+   13. PAGE SPECIFIC: PAYMENT
+   ========================================= */
+.payment-box {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 31, 84, .08);
+}
+
+.summary {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.payment-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.payment-card:hover {
+  border-color: var(--navy);
+  background-color: #fcfcfc;
+}
+
+.payment-card:has(input:checked) {
+  border-color: var(--navy);
+  background-color: #f0f7ff;
+  box-shadow: 0 4px 12px rgba(0, 31, 84, 0.08);
+}
+
+.method-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.method-name {
+  font-weight: 600;
+  color: var(--navy);
+  flex-grow: 1;
+}
+
+.pay-input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy);
+}
+
+.terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.qr-section {
+  display: none;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.qr-section img {
+  max-width: 240px;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.whatsapp-btn {
+  display: none;
+  margin-top: 15px;
+  background: #25D366;
+  color: #fff;
+}
+
+/* =========================================
+   14. PAGE SPECIFIC: PRIVACY & TERMS
+   ========================================= */
+.policy-main {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 24px;
+  background: #fff;
+}
+
+/* =========================================
+   15. FOOTER
+   ========================================= */
+footer {
+  background: var(--navy);
+  color: #cbd5e1;
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 14px;
+  margin-top: auto; /* Pushes footer to bottom if flex container */
+}
+
+footer a {
+  color: var(--gold);
+}
+
+/* =========================================
+   16. MOBILE MEDIA QUERIES
+   ========================================= */
+@media (max-width: 768px) {
+  /* Navigation */
+  .nav-container {
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  
+  .hamburger {
+    display: block;
+    order: 3;
+  }
+  
+  .cta-button.nav-cta {
+    order: 2;
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-left: auto;
+  }
+  
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--navy);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  nav.active {
+    display: flex;
+  }
+  
+  nav a {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  /* Typography */
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .price-hook-box {
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* =========================================
+   17. BLOG MODAL (Added for functionality)
+   ========================================= */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 31, 84, 0.8); /* Navy with opacity */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  border-radius: var(--radius);
+  position: relative;
+  overflow-y: auto; /* Scrollable content */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 20px 30px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: var(--gray);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--navy);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 30px;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.modal-body h2 {
+  font-size: 24px;
+  margin-top: 0;
+  color: var(--navy);
+}
+
+.modal-body h3 {
+  font-size: 18px;
+  color: var(--navy);
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-body li {
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   17. SINGLE BLOG POST PAGE (UPDATED)
+   ========================================= */
+.blog-single-wrapper {
+  width: 100%;           /* Forces full width */
+  max-width: 100%;       /* Removes the 800px limit */
+  margin: 0;             /* Removes auto centering */
+  padding: 40px 5%;      /* Adds breathing room on sides (5% left/right) */
+  background: #fff;
+  min-height: 100vh;     /* Ensures it fills vertical height too */
+}
+
+.blog-header-large {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 30px;
+}
+
+/* Meta Data (Date/Category) */
+.blog-meta {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+.blog-meta span {
+  background: #f0f9ff;
+  color: var(--navy);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Blog Text Content */
+.blog-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #374151;
+  max-width: 1400px; /* Optional: Stops text from becoming too long to read comfortably */
+  margin: 0 auto;    /* Centers the text block if screen is huge */
+}
+
+.blog-content h2 {
+  color: var(--navy);
+  margin-top: 40px;
+  font-size: 24px;
+}
+
+.blog-content ul, .blog-content ol {
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
