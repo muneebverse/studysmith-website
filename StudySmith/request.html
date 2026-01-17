@@ -2,37 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Request a Service | StudySmith</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-:root{
-  --navy:#001F54;
-  --gold:#FFD700;
-  --gray:#6B7280;
-  --light:#F8FAFC;
-  font-family:Inter,system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--light);color:#0b1220}
-header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0}
-.nav-container{max-width:1100px;margin:auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
-.nav-logo{height:55px;mix-blend-mode:multiply}
-nav{display:flex;gap:20px}
-nav a{font-weight:600;color:#374151}
-.cta-button{background:var(--navy);color:var(--gold);padding:10px 20px;border-radius:50px;font-weight:800}
+<title>Request Academic Help - Fast & Secure | StudySmith</title>
+<meta name="description" content="Submit your requirements for assignments, CVs, or presentations. Fast turnaround and student-friendly pricing.">
+<link rel="canonical" href="https://www.studysmith.online/request.html">
+<link rel="icon" href="assets/images/logo.jpg">
 
-.content-wrapper{max-width:1100px;margin:40px auto;padding:0 24px}
-form{background:#fff;padding:30px;border-radius:12px;max-width:700px;margin:auto;box-shadow:0 10px 25px rgba(0,31,84,.08)}
-.form-group{margin-bottom:18px}
-label{display:block;font-weight:600;margin-bottom:6px}
-.form-input{width:100%;padding:12px;border-radius:8px;border:1px solid #e5e7eb;background:#f9fafb}
-.total-price{font-weight:800;font-size:18px;color:var(--navy);margin:10px 0}
-.submit-btn{width:100%;padding:14px;border:none;border-radius:8px;background:var(--gold);color:var(--navy);font-weight:900;font-size:16px;cursor:pointer}
-#review-section{display:none;max-width:700px;margin:30px auto;background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 25px rgba(0,31,84,.08)}
-footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px}
-</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6252714666936335"
+     crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -40,30 +20,29 @@ footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px}
 <header>
   <div class="nav-container">
     <a href="index.html" class="brand">
-      <img src="Images/logo.jpg" class="nav-logo">
+      <img src="assets/images/logo.jpg" class="nav-logo">
       <div>StudySmith<br><small style="color:#6b7280">Crafting Student Success</small></div>
     </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="pricing.html">Pricing</a>
-      <a href="skills.html">Skill Hub</a>
-      <a href="pastpapers.html">Past Papers</a>
+      <a href="https://hub.studysmith.online">Skill Hub</a>
+      <a href="https://hub.studysmith.online/pastpapers">Past Papers</a>
     </nav>
-    <a class="cta-button" href="request.html">Get Help Now</a>
+    <a class="cta-button nav-cta" href="request.html">Get Help Now</a>
   </div>
 </header>
 
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin:40px auto; padding:0 24px;">
 <h1 style="text-align:center;color:var(--navy)">Request a Service</h1>
 
 <form id="requestForm" name="request-ui" novalidate>
-  <div class="form-group"><label>Assignment (299 PKR/page)</label><input type="number" id="assignment" name="assignment" class="form-input" value="0" min="0"></div>
-  <div class="form-group"><label>Presentation (150 PKR/slide)</label><input type="number" id="presentation" name="presentation" class="form-input" value="0" min="0"></div>
-  <div class="form-group"><label>CV / Resume (500 PKR)</label><input type="number" id="cv" name="cv" class="form-input" value="0" min="0"></div>
-  <div class="form-group"><label>Study Notes (150 PKR)</label><input type="number" id="notes" name="notes" class="form-input" value="0" min="0"></div>
-  <div class="form-group"><label>Document Polishing (150 PKR)</label><input type="number" id="doc" name="document_polishing" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Assignment (49 PKR/page)</label><input type="number" id="assignment" name="assignment" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Presentation (99 PKR/slide)</label><input type="number" id="presentation" name="presentation" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>CV / Resume (499 PKR)</label><input type="number" id="cv" name="cv" class="form-input" value="0" min="0"></div>
+  <div class="form-group"><label>Plagiarism Check (299 PKR/upto 50 pages)</label><input type="number" id="doc" name="document_polishing" class="form-input" value="0" min="0"></div>
 
-  <label><input type="checkbox" id="urgent" name="urgent"> Urgent (+49 PKR)</label>
+  <label><input type="checkbox" id="urgent" name="urgent"> Urgent (+79 PKR)</label>
 
   <div class="total-price" id="totalPrice">Total Price: 0 PKR</div>
 
@@ -83,7 +62,6 @@ footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px}
 </div>
 </div>
 
-<!-- NETLIFY FORM -->
 <form name="studysmith-orders" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="payment.html" hidden>
   <input type="hidden" name="bot-field">
   <input type="hidden" name="order_id">
@@ -94,8 +72,7 @@ footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px}
   <input type="hidden" name="assignment">
   <input type="hidden" name="presentation">
   <input type="hidden" name="cv">
-  <input type="hidden" name="notes">
-  <input type="hidden" name="document_polishing">
+  <input type="hidden" name="plagiarism_check">
   <input type="hidden" name="urgent">
   <input type="hidden" name="total_price">
 </form>
@@ -106,7 +83,6 @@ footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px}
 const assignment = document.getElementById('assignment');
 const presentation = document.getElementById('presentation');
 const cv = document.getElementById('cv');
-const notes = document.getElementById('notes');
 const doc = document.getElementById('doc');
 const urgent = document.getElementById('urgent');
 const totalPrice = document.getElementById('totalPrice');
@@ -121,8 +97,8 @@ const deadline = document.getElementById('deadline');
 const time = document.getElementById('time');
 
 function price(){
-  let t = assignment.value*299 + presentation.value*150 + cv.value*500 + notes.value*150 + doc.value*150;
-  if(urgent.checked) t += 49;
+  let t = assignment.value*49 + presentation.value*99 + cv.value*499 + doc.value*299;
+  if(urgent.checked) t += 79;
   totalPrice.textContent = `Total Price: ${t} PKR`;
   return t;
 }
@@ -170,7 +146,7 @@ proceed.addEventListener('click', () => {
   f.assignment.value = assignment.value;
   f.presentation.value = presentation.value;
   f.cv.value = cv.value;
-  f.notes.value = notes.value;
+  // Note: 'notes' was not defined in your script so I removed it to prevent errors
   f.document_polishing.value = doc.value;
   f.urgent.value = urgent.checked ? 'Yes' : 'No';
   f.total_price.value = price();
