@@ -87,12 +87,10 @@
 
 <script>
 // ==========================================
-// GOOGLE FORMS CONFIGURATION (PAYMENT)
+// GOOGLE FORMS CONFIGURATION (VERIFIED)
 // ==========================================
-// 1. Updated URL from your link
 const GOOGLE_PAY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdju7tX606MBiv247u2wGRK3zkVQhvby_U_CVgoFmaWAN59Yw/formResponse'; 
 
-// 2. Updated IDs from your link
 const PAY_ENTRIES = {
     order_id:       'entry.733458012', 
     plan_name:      'entry.496293268',
@@ -110,14 +108,14 @@ const paramPrice = urlParams.get('price');
 
 let orderID, totalPrice, orderStatus, planName;
 
-// SCENARIO A: User clicked a plan on Pricing Page (Direct Link)
+// SCENARIO A: User clicked a plan on Pricing Page
 if (paramPlan && paramPrice) {
   orderID = "DIR-" + Math.floor(1000 + Math.random() * 9000); 
   totalPrice = paramPrice;
   orderStatus = "Ready for Payment";
   planName = paramPlan;
 } 
-// SCENARIO B: User filled out the Request Form (LocalStorage)
+// SCENARIO B: User filled out the Request Form
 else {
   orderID = localStorage.getItem('orderID');
   totalPrice = localStorage.getItem('total_price') || "0";
@@ -202,7 +200,7 @@ paymentForm.addEventListener('submit', e => {
   }).catch(err => {
     console.error("Google Form Error:", err);
   }).finally(() => {
-    // C. Show QR Code (Always show this even if Google fails silently)
+    // C. Show QR Code
     const method = qrCodes[selected.value];
     qrImage.src = method.img;
     qrText.textContent = method.text;
