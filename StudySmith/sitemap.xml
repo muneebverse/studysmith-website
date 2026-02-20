@@ -1,60 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-  <loc>http://studysmith.online/</loc>
+  <loc>https://www.studysmith.online/</loc>
+  <lastmod>2026-02-20T18:33:26+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/services</loc>
+  <loc>https://www.studysmith.online/index.html</loc>
+  <lastmod>2026-02-20T18:33:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/pricing</loc>
+  <loc>https://www.studysmith.online/services.html</loc>
+  <lastmod>2026-02-20T18:33:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/request</loc>
+  <loc>https://www.studysmith.online/pricing.html</loc>
+  <lastmod>2026-02-20T18:33:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/privacy</loc>
+  <loc>https://www.studysmith.online/blog.html</loc>
+  <lastmod>2026-02-20T18:33:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/terms</loc>
+  <loc>https://www.studysmith.online/privacy.html</loc>
+  <lastmod>2026-02-20T18:33:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/blog</loc>
+  <loc>https://www.studysmith.online/terms.html</loc>
+  <lastmod>2026-02-20T18:33:28+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/payment.html?plan=Basic Package&amp;price=699</loc>
+  <loc>https://www.studysmith.online/blog-post-1.html</loc>
+  <lastmod>2026-02-20T18:33:28+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/payment.html?plan=Standard Package&amp;price=1199</loc>
+  <loc>https://www.studysmith.online/blog-post-2.html</loc>
+  <lastmod>2026-02-20T18:33:28+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/payment.html?plan=Premium Package&amp;price=1999</loc>
+  <loc>https://www.studysmith.online/blog-post-3.html</loc>
+  <lastmod>2026-02-20T18:33:28+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://studysmith.online/request?service=assignment</loc>
+  <loc>https://www.studysmith.online/blog-post-4.html</loc>
+  <lastmod>2026-02-20T18:33:28+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<url>
-  <loc>http://studysmith.online/request?service=presentation</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/payment.html?plan=Premium CV Design&amp;price=499</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/payment.html?plan=Plagiarism Check&amp;price=299</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/blog-post-1.html</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/blog-post-2.html</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/blog-post-3.html</loc>
-</url>
-<url>
-  <loc>http://studysmith.online/blog-post-4.html</loc>
-</url>
-<url>
-  <loc></loc>
-</url>
+
+
 </urlset>
