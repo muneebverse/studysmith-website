@@ -1,7 +1,7 @@
 const CONTACT = {
   whatsapp: "923264213612", // Just the number for easier message formatting
-  instagram: "https://www.instagram.com/studysmithservices?igsh=MXRmOGMyZHU3cTl6Nw==",
-  tiktok: "https://www.tiktok.com/@studysmithservices?is_from_webapp=1&sender_device=pc"
+  instagram: "https://www.instagram.com/studysmith.pk?igsh=MXRmOGMyZHU3cTl6Nw==",
+  tiktok: "https://www.tiktok.com/@studysmith.pk?_r=1&_t=ZN-945G2xQ3Ms2"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,3 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
     waBtn.href = `https://wa.me/${CONTACT.whatsapp}?text=${message}`;
   }
 });
+
