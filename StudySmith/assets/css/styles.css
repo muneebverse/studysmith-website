@@ -93,45 +93,59 @@ nav a:hover, nav a.active { color: var(--navy); }
 }
 
 /* =========================================
-   3. UNIFIED MOBILE MENU FIX (The Navigation Bug Fix)
+   3. MOBILE MENU & HAMBURGER
    ========================================= */
 @media (max-width: 768px) {
-  .hamburger { display: block; }
-  
-  /* Stacks elements to match your mobile screenshot */
+  /* Ensure the hamburger is visible */
+  .hamburger {
+    display: block;
+    order: 3;
+    z-index: 1001; /* Stays above the menu */
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    position: relative;
+  }
+
   .nav-actions {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
+    flex-direction: row; /* Keep WhatsApp and Hamburger side-by-side */
+    gap: 10px;
+    order: 2;
   }
 
-  .nav-cta { 
-    font-size: 12px !important; 
-    padding: 6px 12px !important; 
-    white-space: nowrap;
-  }
-
-  /* Fixed Hiding: Targets the ID strictly to prevent overlap */
-  nav#mobile-nav {
-    display: none; 
+  /* Consolidated Mobile Nav */
+  nav, nav#mobile-nav {
+    display: none; /* Hidden by default */
     position: absolute;
-    top: 100%; 
+    top: 100%; /* Sits right below header */
     left: 0;
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     flex-direction: column;
-    padding: 10px 0;
-    border-bottom: 3px solid var(--navy);
+    padding: 20px 0;
+    border-bottom: 4px solid var(--navy);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    z-index: 1000;
   }
 
-  nav#mobile-nav.active { display: flex; }
+  /* This class is toggled via JavaScript */
+  nav.active, nav#mobile-nav.active {
+    display: flex !important;
+  }
 
-  nav#mobile-nav a { 
-    padding: 15px 24px; 
-    border-bottom: 1px solid #f1f5f9; 
-    text-align: center; 
+  nav a, nav#mobile-nav a {
+    padding: 15px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: center;
     width: 100%;
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    white-space: nowrap;
   }
 }
 
@@ -334,3 +348,4 @@ footer {
 }
 
 footer a { color: var(--gold); margin: 0 10px; }
+
