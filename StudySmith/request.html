@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Request Services - StudySmith Agency</title>
+<meta name="description" content="Submit your requirements for typed assignments, ATS CVs, and presentations. Premium services with optional installment plans.">
+<link rel="canonical" href="https://www.studysmith.online/request.html">
+<link rel="icon" href="assets/images/logo.jpg">
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="assets/images/logo.jpg" class="nav-logo">
+      <div>StudySmith<br><small style="color:#6b7280">Structured Academic & Career Agency</small></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="https://hub.studysmith.online">Skill Hub</a>
+      <a href="https://hub.studysmith.online/pastpapers">Past Papers</a>
+    </nav>
+    <a class="cta-button nav-cta" href="request.html">Get Started</a>
+  </div>
+</header>
+
+<div class="content-wrapper" style="margin:40px auto; padding:0 24px;">
+<h1 style="text-align:center;color:var(--navy)">Submit Your Order</h1>
+
+<form id="requestForm" name="request-ui" novalidate>
+
+  <div class="form-group">
+    <label>Assignment Pages</label>
+    <select id="assignmentTier" class="form-input">
+      <option value="0">-- Select Tier --</option>
+      <option value="399" data-min="3">Standard Digital (399 PKR/page) - Min 3 pages</option>
+      <option value="599" data-min="4">Professional Academic (599 PKR/page) - Min 4 pages</option>
+      <option value="799" data-min="5">High-Grade Academic (799 PKR/page) - Min 5 pages</option>
+    </select>
+    <input type="number" id="assignmentQty" name="assignment" class="form-input" value="0" min="0" placeholder="Number of pages">
+  </div>
+
+  <div class="form-group">
+    <label>Presentation Slides</label>
+    <select id="presentationTier" class="form-input">
+      <option value="0">-- Select Tier --</option>
+      <option value="249" data-min="5">Standard Slides (249 PKR/slide) - Min 5 slides</option>
+      <option value="349" data-min="5">Professional Slides (349 PKR/slide) - Min 5 slides</option>
+      <option value="499" data-min="5">Premium Slides (499 PKR/slide) - Min 5 slides</option>
+    </select>
+    <input type="number" id="presentationQty" name="presentation" class="form-input" value="0" min="0" placeholder="Number of slides">
+  </div>
+
+  <div class="form-group">
+    <label>CV / Resume</label>
+    <select id="cvTier" class="form-input">
+      <option value="0">-- Select Tier --</option>
+      <option value="1499">Starter (1 CV)</option>
+      <option value="3999">Professional (1 CV)</option>
+      <option value="8999">Elite (1 CV)</option>
+    </select>
+    <input type="number" id="cvQty" name="cv" class="form-input" value="0" min="0" placeholder="Number of CVs">
+  </div>
+
+  <div class="form-group" id="installmentSection" style="display:none;">
+    <label><input type="checkbox" id="installment"> Request Installment Plan (Premium CVs only)</label>
+  </div>
+
+  <div class="form-group">
+    <label>Plagiarism Check</label>
+    <select id="plagTier" class="form-input">
+      <option value="0">-- Select --</option>
+      <option value="699">Basic (up to 30 pages)</option>
+      <option value="1299">Advanced (up to 50 pages)</option>
+    </select>
+  </div>
+
+  <label><input type="checkbox" id="urgent" name="urgent"> Urgent / Priority (+149 PKR)</label>
+
+  <div class="total-price" id="totalPrice">Total Price: 0 PKR</div>
+
+  <div class="form-group"><label>Full Name</label><input id="fullname" name="full_name" class="form-input" required></div>
+  <div class="form-group"><label>Email</label><input id="email" name="email" type="email" class="form-input" required></div>
+  <div class="form-group"><label>Deadline</label><input id="deadline" name="deadline" type="date" class="form-input" required></div>
+  <div class="form-group"><label>Time</label><input id="time" name="time" type="time" class="form-input" required></div>
+
+  <button class="submit-btn" type="submit">Submit Request</button>
+</form>
+
+<div id="review-section" style="display:none; background:#fefefe; border: 1px solid #ddd; padding: 25px; border-radius: 12px; margin-top:20px;">
+  <h2 style="color:var(--navy); margin-top:0;">Review Your Request</h2>
+  <div id="review-details" style="line-height:1.6; margin-bottom: 20px;"></div>
+  
+  <div style="margin-bottom:20px;">
+    <label><input type="checkbox" id="agreeTerms"> I agree to the Terms & Privacy Policy</label>
+  </div>
+
+  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <button class="submit-btn" id="downloadSummary" style="background:#6b7280; flex:1;">Download Summary (TXT)</button>
+    <button class="submit-btn" id="proceed" style="background:#25D366; flex:1;">Order via WhatsApp 💬</button>
+  </div>
+  
+  <p id="sending-msg" style="display:none; color: #25D366; font-weight:bold; margin-top:15px; text-align:center;">Redirecting to WhatsApp...</p>
+</div>
+</div>
+
+<footer>© 2025 StudySmith</footer>
+
+<script>
+// Configuration
+const WHATSAPP_NUMBER = "9233264213612"; // ADD YOUR NUMBER HERE
+
+// Element References
+const assignmentTier = document.getElementById('assignmentTier');
+const assignmentQty = document.getElementById('assignmentQty');
+const presentationTier = document.getElementById('presentationTier');
+const presentationQty = document.getElementById('presentationQty');
+const cvTier = document.getElementById('cvTier');
+const cvQty = document.getElementById('cvQty');
+const installmentSection = document.getElementById('installmentSection');
+const installment = document.getElementById('installment');
+const plagiTier = document.getElementById('plagTier');
+const urgent = document.getElementById('urgent');
+const totalPrice = document.getElementById('totalPrice');
+const requestForm = document.getElementById('requestForm');
+const reviewSection = document.getElementById('review-section');
+const reviewDetails = document.getElementById('review-details');
+const proceed = document.getElementById('proceed');
+const downloadBtn = document.getElementById('downloadSummary');
+const agreeTerms = document.getElementById('agreeTerms');
+const fullname = document.getElementById('fullname');
+const email = document.getElementById('email');
+const deadline = document.getElementById('deadline');
+const time = document.getElementById('time');
+const sendingMsg = document.getElementById('sending-msg');
+
+// Show installment option for premium CVs
+cvTier.addEventListener('change', () => {
+  const val = parseInt(cvTier.value);
+  if(val === 3999 || val === 8999){
+    installmentSection.style.display = 'block';
+  } else {
+    installmentSection.style.display = 'none';
+    installment.checked = false;
+  }
+});
+
+// Calculate total price
+function price(){
+  let t = 0;
+  // Assignment
+  let aTier = parseInt(assignmentTier.value);
+  let aMin = parseInt(assignmentTier.selectedOptions[0].dataset.min || 0);
+  let aQty = parseInt(assignmentQty.value);
+  if(aQty > 0 && aQty < aMin){
+    alert(`Minimum ${aMin} pages required for selected assignment tier.`);
+    assignmentQty.value = aMin;
+    aQty = aMin;
+  }
+  t += aTier * aQty;
+
+  // Presentation
+  let pTier = parseInt(presentationTier.value);
+  let pMin = parseInt(presentationTier.selectedOptions[0].dataset.min || 0);
+  let pQty = parseInt(presentationQty.value);
+  if(pQty > 0 && pQty < pMin){
+    alert(`Minimum ${pMin} slides required for selected presentation tier.`);
+    presentationQty.value = pMin;
+    pQty = pMin;
+  }
+  t += pTier * pQty;
+
+  // CV
+  t += parseInt(cvTier.value || 0) * parseInt(cvQty.value || 0);
+
+  // Plagiarism
+  t += parseInt(plagiTier.value || 0);
+
+  // Urgent
+  if(urgent.checked) t += 149;
+
+  totalPrice.textContent = `Total Price: ${t} PKR`;
+  return t;
+}
+
+document.querySelectorAll('#requestForm input, #requestForm select').forEach(i => i.addEventListener('input', price));
+price();
+
+// --- NEW HELPER: Get readable summary of services ---
+function getOrderBreakdown() {
+  let breakdown = "";
+  if(parseInt(assignmentQty.value) > 0) {
+    breakdown += `- Assignment: ${assignmentQty.value} pages (${assignmentTier.selectedOptions[0].text})\n`;
+  }
+  if(parseInt(presentationQty.value) > 0) {
+    breakdown += `- Presentation: ${presentationQty.value} slides (${presentationTier.selectedOptions[0].text})\n`;
+  }
+  if(parseInt(cvQty.value) > 0) {
+    breakdown += `- CV/Resume: ${cvQty.value} (${cvTier.selectedOptions[0].text})\n`;
+  }
+  if(plagiTier.value !== "0") {
+    breakdown += `- Plagiarism Check: ${plagiTier.selectedOptions[0].text}\n`;
+  }
+  return breakdown;
+}
+
+// Form submission (Validation and Review)
+requestForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const currentPrice = price();
+  if(currentPrice <= 0){
+    alert('Please select at least one service.');
+    return;
+  }
+  if(!fullname.value || !email.value || !deadline.value || !time.value){
+      alert('Please fill in all personal details.');
+      return;
+  }
+
+  const id = 'SS-' + Date.now();
+  localStorage.setItem('orderID', id);
+  localStorage.setItem('total_price', currentPrice);
+
+  // Updated Review UI with Tier labels
+  reviewDetails.innerHTML = `
+    <div style="background:#f9fafb; padding:15px; border-radius:8px; border:1px solid #e5e7eb;">
+        <p><strong>Order ID:</strong> ${id}</p>
+        <p><strong>Name:</strong> ${fullname.value}</p>
+        <hr>
+        <p><strong>Services:</strong><br><pre style="font-family:inherit; margin:0;">${getOrderBreakdown()}</pre></p>
+        <p><strong>Total Amount:</strong> ${currentPrice} PKR</p>
+    </div>
+  `;
+
+  requestForm.style.display = 'none';
+  reviewSection.style.display = 'block';
+});
+
+// Download TXT Summary logic
+downloadBtn.addEventListener('click', () => {
+  const orderID = localStorage.getItem('orderID');
+  const total = localStorage.getItem('total_price');
+  
+  const summary = `STUDYSMITH AGENCY - ORDER SUMMARY\n` +
+         `-----------------------------------\n` +
+         `Order ID: ${orderID}\n` +
+         `Customer: ${fullname.value}\n` +
+         `Email: ${email.value}\n` +
+         `Deadline: ${deadline.value} at ${time.value}\n` +
+         `-----------------------------------\n` +
+         `SERVICES REQUESTED:\n${getOrderBreakdown()}` +
+         `Urgent Service: ${urgent.checked ? 'Yes' : 'No'}\n` +
+         `Installment Plan: ${installment.checked ? 'Requested' : 'No'}\n` +
+         `-----------------------------------\n` +
+         `TOTAL PRICE: ${total} PKR\n\n` +
+         `Status: Pending Verification via WhatsApp.`;
+  
+  const blob = new Blob([summary], { type: 'text/plain' });
+  const anchor = document.createElement('a');
+  anchor.download = `StudySmith_Order_${orderID}.txt`;
+  anchor.href = window.URL.createObjectURL(blob);
+  anchor.click();
+});
+
+// Proceed to WhatsApp logic
+proceed.addEventListener('click', () => {
+  if(!agreeTerms.checked){
+    alert('Please accept Terms & Privacy Policy');
+    return;
+  }
+
+  const orderID = localStorage.getItem('orderID');
+  const total = localStorage.getItem('total_price');
+
+  const message = `*✨ New Order: StudySmith Agency* \n\n` +
+                  `*Order ID:* ${orderID}\n` +
+                  `*Customer:* ${fullname.value}\n\n` +
+                  `*Services:*\n${getOrderBreakdown()}` +
+                  `*Urgent:* ${urgent.checked ? "Yes ⚡" : "No"}\n` +
+                  `*Installment:* ${installment.checked ? "Requested ✅" : "No"}\n` +
+                  `*Deadline:* ${deadline.value} at ${time.value}\n` +
+                  `*Total:* ${total} PKR\n\n` +
+                  `_I have my order summary. Please share JazzCash/EasyPaisa details._`;
+
+  proceed.disabled = true;
+  proceed.innerText = "Opening WhatsApp...";
+  sendingMsg.style.display = 'block';
+
+  window.location.href = `https://wa.me/${923264213612}?text=${encodeURIComponent(message)}`;
+});
+</script>
+
+</body>
+</html>
