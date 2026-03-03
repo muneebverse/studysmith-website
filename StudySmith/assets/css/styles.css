@@ -107,13 +107,32 @@ nav a:hover, nav a.active {
 }
 
 /* Mobile Menu Toggle */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: var(--navy);
-  cursor: pointer;
+@media (max-width: 768px) {
+  nav {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 75px; /* Adjust based on your header height */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 10px 0;
+    border-bottom: 3px solid var(--navy);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  nav.active {
+    display: flex; /* Shown when hamburger is clicked */
+  }
+
+  nav a {
+    padding: 18px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 16px;
+  }
 }
 
 /* =========================================
@@ -309,25 +328,28 @@ section {
 }
 
 /* =========================================
-   8. PAGE SPECIFIC: REQUEST SERVICE
+   REQUEST PAGE SPECIFIC STYLES
    ========================================= */
-.total-price {
-  font-weight: 800;
-  font-size: 18px;
-  color: var(--navy);
-  margin: 10px 0;
+.request-section {
+  background: var(--light);
+  padding: 80px 24px;
 }
 
-#review-section {
-  display: none;
-  max-width: 700px;
-  margin: 30px auto;
+.request-container {
+  max-width: 600px;
+  margin: 0 auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 31, 84, .08);
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid #eef2ff;
+  box-shadow: 0 10px 40px rgba(0, 31, 84, 0.05);
 }
 
+.request-container h2 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
 /* =========================================
    9. PAGE SPECIFIC: SERVICES
    ========================================= */
