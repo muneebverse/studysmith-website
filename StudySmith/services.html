@@ -60,11 +60,11 @@
       <div class="service-card">
         <span class="service-icon">🎓</span>
         <h3>Assignment Consulting</h3>
-        <p>Strategic drafting and structural alignment based on specific university rubrics. We solve the complexity of research for you.</p>
+        <p>Expert coaching and research guidance to help you understand complex university rubrics. We support your learning process every step of the way.</p>
         <ul class="service-list">
-            <li>In-depth Topic Research</li>
-            <li>Critical Analysis & Outlining</li>
-            <li>Rubric Alignment Assurance</li>
+            <li>In-depth Topic Research Guidance</li>
+            <li>Critical Analysis Coaching</li>
+            <li>Rubric Alignment Support</li>
         </ul>
         <a href="request.html" class="service-btn-outline">Start Consulting Project</a>
       </div>
@@ -96,11 +96,11 @@
       <div class="service-card">
         <span class="service-icon">📝</span>
         <h3>Strategic Study Insights</h3>
-        <p>Stop drowning in textbooks. We condense complex modules into concise, high-retention revision material.</p>
+        <p>We help you navigate complex modules by providing structured study frameworks and revision guidance to strengthen your own understanding.</p>
         <ul class="service-list">
             <li>Core Concept Highlighting</li>
-            <li>Bullet-Point Exam Guides</li>
-            <li>Executive Chapter Summaries</li>
+            <li>Exam Strategy Guides</li>
+            <li>Chapter Summary Frameworks</li>
         </ul>
         <a href="request.html" class="service-btn-outline">Get Study Notes</a>
       </div>
@@ -138,19 +138,20 @@
     </div>
   </section>
 
+  <section id="integrity-notice" style="background:#f8fafc; padding:30px 24px; text-align:center; border-top:1px solid #e5e7eb;">
+    <p style="max-width:700px; margin:0 auto; font-size:13px; color:#6b7280;">
+      <strong>Academic Integrity:</strong> All StudySmith services are provided as educational consulting and learning reference support only. Clients are responsible for producing their own original work in compliance with their institution's academic integrity policies.
+    </p>
+  </section>
+
   <section id="contact" style="background:var(--navy); color:#fff;">
     <h2 style="margin-bottom:20px; color: #fff;">Ready to Outperform?</h2>
     <p style="opacity: 0.8; margin-bottom:40px; max-width: 600px; margin-left: auto; margin-right: auto;">
       Don't let the workload accumulate. Contact our strategists today for a custom project quote.
     </p>
-
     <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap">
-      <a class="cta-button" style="background:#25D366; color:#fff; border:none;" href="https://wa.me/923264213612" target="_blank">
-        Consult via WhatsApp
-      </a>
-      <a class="cta-button" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3);" href="pricing.html">
-        View Pricing Tiers
-      </a>
+      <a class="cta-button" style="background:#25D366; color:#fff; border:none;" href="https://wa.me/923264213612" target="_blank">Consult via WhatsApp</a>
+      <a class="cta-button" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3);" href="pricing.html">View Pricing Tiers</a>
     </div>
   </section>
 </main>
@@ -162,12 +163,30 @@
     <a href="terms.html">Terms</a> | 
     <a href="blog.html">Insights</a>
   </div>
+  <div style="margin-top:10px; font-size:13px; color:#9ca3af;">
+    Email: <a href="mailto:founder@studysmith.online" style="color:#9ca3af;">founder@studysmith.online</a>
+  </div>
 </footer>
 
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; background:#1f2937; color:#f9fafb; padding:16px 24px; z-index:9999; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:14px;">
+  <p style="margin:0; max-width:700px;">We use cookies to improve your experience and serve relevant ads via Google Ads and Analytics. By continuing to use this site, you agree to our <a href="privacy.html" style="color:#93c5fd;">Privacy Policy</a>.</p>
+  <button onclick="acceptCookies()" style="background:#2563eb; color:#fff; border:none; padding:10px 22px; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept & Continue</button>
+</div>
+
 <script>
-  function toggleMenu() {
-    document.getElementById('mobile-nav').classList.toggle('active');
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+window.addEventListener('load', function() {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').style.display = 'flex';
   }
+});
+function toggleMenu() {
+    document.getElementById('mobile-nav').classList.toggle('active');
+}
 </script>
 
 </body>
