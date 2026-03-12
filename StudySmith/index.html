@@ -34,6 +34,147 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* ── Portfolio Section ── */
+    #portfolio .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+      transform: translateY(-3px);
+    }
+
+    /* Image wrapper — fixed height, clips the image */
+    .portfolio-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #f1f3f5;
+      border-bottom: 1px solid #eee;
+      flex-shrink: 0;
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center; /* show top of CV, not middle */
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .portfolio-img-link:hover .portfolio-img {
+      transform: scale(1.04);
+    }
+
+    /* Hover overlay */
+    .portfolio-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 60, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .portfolio-img-overlay span {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.15);
+      padding: 8px 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .portfolio-img-link:hover .portfolio-img-overlay {
+      opacity: 1;
+    }
+
+    /* Placeholder for cards without image */
+    .portfolio-img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #adb5bd;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Outcome badge */
+    .outcome-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #166534;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    /* Case study CTA button */
+    .case-study-btn {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+      padding: 9px 14px;
+      border-radius: 6px;
+      text-align: center;
+      transition: background 0.2s ease, color 0.2s ease;
+      display: block;
+    }
+
+    .case-study-btn:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* Mobile: stack to single column, slightly shorter image */
+    @media (max-width: 600px) {
+      #portfolio .grid-container {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .portfolio-img-wrap {
+        height: 190px;
+      }
+
+      /* Always show overlay on touch devices */
+      .portfolio-img-overlay {
+        opacity: 1;
+        background: rgba(15, 23, 60, 0.3);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -107,33 +248,76 @@
 
   <section id="portfolio" style="background: #fff;">
     <h2 class="section-title">Success Portfolio</h2>
-    <p style="color: var(--gray); margin-top: -30px; margin-bottom: 40px;">Recent high-impact results from our premium tiers.</p>
-    
+    <p style="color: var(--gray); margin-top: -30px; margin-bottom: 40px;">Real outcomes from real students — verified results, not generic quotes.</p>
+
     <div class="grid-container">
-      <div class="blog-card">
-        <div style="background:#e9ecef; height:200px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#adb5bd;">ATS CV Layout [Elite]</div>
+
+      <!-- Card 1: ATS CV Case -->
+      <div class="blog-card portfolio-card">
+        <a href="assets/proofs/Muneeb-Sultan.pdf" target="_blank" class="portfolio-img-link">
+          <div class="portfolio-img-wrap">
+            <img 
+              src="assets/images/cv-preview.png" 
+              alt="ATS CV Preview — Mechanical Engineering"
+              class="portfolio-img"
+            >
+            <div class="portfolio-img-overlay">
+              <span>View CV Sample ↗</span>
+            </div>
+          </div>
+        </a>
         <div class="card-header">
-            <span class="tag">Career</span>
-            <span class="date">Success Case</span>
+          <span class="tag">Career</span>
+          <span class="date">Success Case</span>
         </div>
-        <div class="card-body">
-          <h3 style="margin:0 0 10px 0;">Mechanical Engineering Internship</h3>
-          <p style="font-size:14px; color:var(--gray); flex-grow:1;">Secured role at a Top-Tier firm using ATS keyword optimization and structural logic.</p>
+        <div class="card-body" style="display:flex; flex-direction:column;">
+          <div class="outcome-badge">✅ Shortlisted at Top-Tier Firm</div>
+          <h3 style="margin:8px 0 10px 0;">Mechanical Engineering Internship</h3>
+          <p style="font-size:14px; color:var(--gray); flex-grow:1; margin-bottom:15px;">
+            Secured internship at a leading firm after ATS keyword optimization and strategic CV restructuring — zero prior callbacks before StudySmith.
+          </p>
+          <a href="assets/proofs/Muneeb-Sultan.pdf" target="_blank" class="case-study-btn">
+            View Full Case Study (PDF) →
+          </a>
         </div>
       </div>
 
-      <div class="blog-card">
-        <div style="background:#e9ecef; height:200px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#adb5bd;">Consulting Draft [High-Grade]</div>
+      <!-- Card 2: Engineering Management Thesis Case -->
+      <div class="blog-card portfolio-card">
+        <a href="assets/proofs/thesis-case-study.docx" target="_blank" class="portfolio-img-link">
+          <div class="portfolio-img-wrap">
+            <img
+              src="assets/images/thesis-preview.jpg"
+              alt="Engineering Management Thesis Preview — COMSATS"
+              class="portfolio-img"
+            >
+            <div class="portfolio-img-overlay">
+              <span>View Case Study ↗</span>
+            </div>
+          </div>
+        </a>
         <div class="card-header">
-            <span class="tag" style="background:#eef2ff;">Academic</span>
-            <span class="date">Success Case</span>
+          <span class="tag" style="background:#eef2ff; color:#3730a3;">Engineering</span>
+          <span class="date">Success Case</span>
         </div>
-        <div class="card-body">
-          <h3 style="margin:0 0 10px 0;">Final Year Thesis Support</h3>
-          <p style="font-size:14px; color:var(--gray); flex-grow:1;">Deep-level research and critical analysis for a complex Business Analytics project.</p>
+        <div class="card-body" style="display:flex; flex-direction:column;">
+          <div class="outcome-badge" style="background:#eef2ff; color:#3730a3; border-color:#c7d2fe;">✅ Distinction / First Class — COMSATS</div>
+          <h3 style="margin:8px 0 10px 0;">Engineering Management Thesis</h3>
+          <p style="font-size:14px; color:var(--gray); flex-grow:1; margin-bottom:15px;">
+            Full final year thesis on TQM implementation in Pakistani SMEs — deep research, SPSS analysis, and APA formatting delivered in 18 days.
+          </p>
+          <a href="assets/proofs/thesis-case-study.docx" target="_blank" class="case-study-btn" style="border-color:#6366f1; color:#4f46e5;">
+            View Full Case Study (PDF) →
+          </a>
         </div>
       </div>
+
     </div>
+
+    <!-- Verified trust note -->
+    <p style="text-align:center; margin-top:32px; font-size:13px; color:var(--gray);">
+      🔒 100% verified service — secure WhatsApp, no third-party numbers, no scams.
+    </p>
   </section>
 
   <section id="contact" style="background:var(--navy); color:#fff;">
@@ -164,7 +348,7 @@
     <a href="blog.html">Insights</a>
   </div>
   <div style="margin-top:10px; font-size:13px; color:#9ca3af;">
-    Email: <a href="mailto:founder@studysmith.online" style="color:#9ca3af;">founder@studysmith.online</a>
+    Email: <a href="/cdn-cgi/l/email-protection#274148524943425567545352435e544a4e534f0948494b4e4942" style="color:#9ca3af;"><span class="__cf_email__" data-cfemail="9bfdf4eef5fffee9dbe8efeeffe2e8f6f2eff3b5f4f5f7f2f5fe">[email&#160;protected]</span></a>
   </div>
 </footer>
 
@@ -174,20 +358,10 @@
   <button onclick="acceptCookies()" style="background:#2563eb; color:#fff; border:none; padding:10px 22px; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept & Continue</button>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function acceptCookies() {
   localStorage.setItem('cookiesAccepted', 'true');
   document.getElementById('cookie-banner').style.display = 'none';
 }
 window.addEventListener('load', function() {
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-banner').style.display = 'flex';
-  }
-});
-function toggleMenu() {
-    document.getElementById('mobile-nav').classList.toggle('active');
-}
-</script>
-
-</body>
-</html>
+  if
