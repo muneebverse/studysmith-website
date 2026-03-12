@@ -19,5 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = encodeURIComponent("Hi StudySmith! I'm interested in elevating my academic performance. Can we talk?");
     waBtn.href = `https://wa.me/${CONTACT.whatsapp}?text=${message}`;
   }
+
+  // 4. Cookie Banner — hide if already accepted
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+  }
 });
 
+function acceptCookies() {
+  localStorage.setItem('cookiesAccepted', 'true');
+  const banner = document.getElementById('cookie-banner');
+  if (banner) banner.style.display = 'none';
+}
