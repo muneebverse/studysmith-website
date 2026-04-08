@@ -1,13 +1,21 @@
-# robots.txt for studysmith.online
-# Generated: 2026-03-04
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /
 
+# Allow all major search engines
 User-agent: *
 Allow: /
 
-# Block any backend or private paths (if added in future)
+# Prevent crawling of non-critical assets
 Disallow: /admin/
 Disallow: /private/
 Disallow: /cgi-bin/
 
+# Crawl rate limits
+Crawl-delay: 1
+Request-rate: 30/1m
+
 # Sitemap location
-Sitemap: https://www.studysmith.online/sitemap.xml
+Sitemap: https://studysmith.online/sitemap.xml
