@@ -1,171 +1,368 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Insights & Strategy | Academic News & Career Tips | StudySmith</title>
-  <meta name="description" content="Expert analysis on 2026 scholarships, HEC announcements, ATS CV strategies, and global education news for high-performing students.">
-  <link rel="icon" href="assets/images/logo.jpg">
-  <link rel="stylesheet" href="assets/css/styles.css">
-<link rel="canonical" href="https://studysmith.online/blog" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════
+       PRIMARY SEO
+  ════════════════════════════════════════ -->
+  <title>StudySmith Blog — Scholarships, HEC Alerts & Career Tips for Pakistani Students</title>
+  <meta name="description" content="Stay ahead with StudySmith's expert blog. Get fully funded scholarship guides, HEC policy updates, ATS CV tips, and AI study strategies — made for Pakistani engineering and undergraduate students." />
+  <meta name="keywords" content="scholarships for Pakistani students 2026, HEC attestation update, ATS CV tips Pakistan, AI tools for engineering students, study guides Pakistan, fully funded scholarships 2026, career strategy for students Pakistan" />
+  <meta name="author" content="StudySmith" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.studysmith.online/blog.html" />
+
+  <!-- ═══════════════════════════════════════
+       OPEN GRAPH (Facebook / WhatsApp / LinkedIn)
+  ════════════════════════════════════════ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="StudySmith" />
+  <meta property="og:title"       content="StudySmith Blog — Scholarships, HEC Alerts & Career Tips" />
+  <meta property="og:description" content="Expert scholarship guides, HEC policy updates, ATS CV tips and AI study strategies for Pakistani students." />
+  <meta property="og:url"         content="https://www.studysmith.online/blog.html" />
+  <meta property="og:image"       content="https://www.studysmith.online/assets/images/og-blog.jpg" />
+  <meta property="og:locale"      content="en_PK" />
+
+  <!-- ═══════════════════════════════════════
+       TWITTER / X CARD
+  ════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@studysmith" />
+  <meta name="twitter:title"       content="StudySmith Blog — Scholarships, HEC Alerts & Career Tips" />
+  <meta name="twitter:description" content="Expert scholarship guides, HEC policy updates, ATS CV tips and AI study strategies for Pakistani students." />
+  <meta name="twitter:image"       content="https://www.studysmith.online/assets/images/og-blog.jpg" />
+
+  <!-- ═══════════════════════════════════════
+       SCHEMA.org — Blog structured data
+  ════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "StudySmith Blog",
+    "url": "https://www.studysmith.online/blog.html",
+    "description": "Scholarship guides, HEC alerts, career strategy and study tips for Pakistani engineering and undergraduate students.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "StudySmith",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.studysmith.online/assets/images/logo.jpg"
+      }
+    }
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       FONTS & EXTERNAL CSS
+  ════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    /* ── Blog-page–only overrides ── */
+
+    .blog-hero {
+      background: var(--navy);
+      text-align: center;
+      padding: 56px 24px 44px;
+    }
+
+    .blog-hero h1 {
+      color: #fff;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .blog-hero p {
+      color: #cbd5e1;
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 30px;
+      line-height: 1.65;
+    }
+
+    /* Override filter-btn for dark hero background */
+    .blog-hero .filter-btn {
+      border-color: rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    .blog-hero .filter-btn:hover,
+    .blog-hero .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    /* Grid wrapper */
+    .blog-section {
+      padding: 48px 24px 80px;
+    }
+
+    /* Card animation */
+    .blog-card {
+      animation: fadeUp 0.3s ease both;
+    }
+
+    .blog-card.hidden {
+      display: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Coloured tag variants */
+    .tag-scholarships   { background: #dbeafe; color: #1d4ed8; }
+    .tag-announcements  { background: #fce7f3; color: #9d174d; }
+    .tag-education-news { background: #d1fae5; color: #065f46; }
+    .tag-student-tips   { background: #ede9fe; color: #5b21b6; }
+    .tag-study-guides   { background: #fef3c7; color: #92400e; }
+    .tag-hec-policy     { background: #fee2e2; color: #991b1b; }
+    .tag-career         { background: #e0f2fe; color: #075985; }
+    .tag-global-news    { background: #f0fdf4; color: #15803d; }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+      display: none;
+    }
+    .empty-state.visible { display: block; }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-container">
-    <a href="/" class="brand">
-      <img src="assets/images/logo.jpg" alt="StudySmith Logo" class="nav-logo">
-      <div>StudySmith<div style="font-size:12px;font-weight:500;color:var(--gray)">Structured Academic & Career Agency</div></div>
-    </a>
-    <nav id="mobile-nav">
-      <a href="/">Home</a>
-      <a href="/services">Services</a>
-      <a href="/pricing">Pricing</a>
-      <a href="https://hub.studysmith.online/pastpapers">Past Papers</a>
-      <a href="/blog" class="active">Insights</a>
-      <a href="/request">Request Service</a>
-    </nav>
-    <div class="nav-actions">
-        <a class="cta-button nav-cta" href="/request">Consult With Us</a>
-        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  <!-- ══════════════════════════════════════
+       HEADER — pulled from your shared nav
+  ════════════════════════════════════════ -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/images/logo.jpg" alt="StudySmith Logo" class="nav-logo" />
+        StudySmith
+      </a>
+      <nav id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="past-papers.html">Past Papers</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="request.html" class="cta-button nav-cta">🚀 Get Help Now</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       BLOG HERO + FILTER TABS
+  ════════════════════════════════════════ -->
+  <div class="blog-hero">
+    <h1>Insights &amp; Updates</h1>
+    <p>Strategic updates on global scholarships, career logic, and academic success for the 2026 cycle.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Updates</button>
+      <button class="filter-btn" data-filter="scholarships">Scholarships</button>
+      <button class="filter-btn" data-filter="hec-alerts">HEC Alerts</button>
+      <button class="filter-btn" data-filter="global-news">Global News</button>
+      <button class="filter-btn" data-filter="career-strategy">Career Strategy</button>
+      <button class="filter-btn" data-filter="student-tips">Student Tips</button>
+      <button class="filter-btn" data-filter="study-guides">Study Guides</button>
+      <button class="filter-btn" data-filter="education-news">Education News</button>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <h1>Agency Insights</h1>
-  <p>Strategic updates on global scholarships, career logic, and academic success for the 2026 cycle.</p>
-  
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All Updates</button>
-    <button class="filter-btn" data-filter="Scholarships">Scholarships</button>
-    <button class="filter-btn" data-filter="Announcements">HEC Alerts</button>
-    <button class="filter-btn" data-filter="Education News">Global News</button>
-    <button class="filter-btn" data-filter="Student Tips">Career Strategy</button>
-  </div>
-</section>
+  <!-- ══════════════════════════════════════
+       BLOG GRID
+  ════════════════════════════════════════ -->
+  <main class="blog-section">
+    <div class="blog-container" id="blogGrid">
 
-<div class="blog-container">
-  
-  <article class="blog-card" data-category="Scholarships">
-    <div class="card-header"><span class="tag">Scholarships</span><span class="date">Feb 2026</span></div>
-    <div class="card-body">
-      <h3>Top 7 Fully Funded Scholarships for 2026</h3>
-      <p>From Fulbright to Erasmus Mundus, we break down the eligibility and strategic SOP requirements for this year's top awards.</p>
-      <a href="/blog-post-1" class="read-more">Read Strategy →</a>
+      <!-- SCHOLARSHIPS -->
+      <article class="blog-card" data-category="scholarships">
+        <div class="card-header">
+          <span class="tag tag-scholarships">Scholarships</span>
+          <span class="date">Feb 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Top 7 Fully Funded Scholarships for 2026</h3>
+          <p>From Fulbright to Erasmus Mundus, we break down the eligibility and strategic SOP requirements for this year's top awards.</p>
+          <a href="#" class="read-more">Read Strategy →</a>
+        </div>
+      </article>
+
+      <!-- HEC ALERTS -->
+      <article class="blog-card" data-category="hec-alerts">
+        <div class="card-header">
+          <span class="tag tag-announcements">Announcements</span>
+          <span class="date">Feb 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>HEC Policy Update: New Attestation Guidelines</h3>
+          <p>Crucial updates on degree equivalence and digital attestation for 2026. Avoid delays in your international applications.</p>
+          <a href="#" class="read-more">Read Update →</a>
+        </div>
+      </article>
+
+      <!-- EDUCATION NEWS -->
+      <article class="blog-card" data-category="education-news">
+        <div class="card-header">
+          <span class="tag tag-education-news">Education News</span>
+          <span class="date">Jan 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>The Rise of Digital Universities in Pakistan</h3>
+          <p>How the 2026 digital shift is changing the landscape of higher education and professional certification in the region.</p>
+          <a href="#" class="read-more">Read News →</a>
+        </div>
+      </article>
+
+      <!-- STUDENT TIPS -->
+      <article class="blog-card" data-category="student-tips">
+        <div class="card-header">
+          <span class="tag tag-student-tips">Student Tips</span>
+          <span class="date">Jan 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>ATS CV Mastery: Passing the 6-Second Test</h3>
+          <p>Recruiters in 2026 spend less time than ever on your CV. Learn the structural logic required to bypass AI filters.</p>
+          <a href="#" class="read-more">Read Tips →</a>
+        </div>
+      </article>
+
+      <!-- STUDY GUIDES -->
+      <article class="blog-card" data-category="study-guides">
+        <div class="card-header">
+          <span class="tag tag-study-guides">Study Guides &amp; Tips</span>
+          <span class="date">Apr 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>How AI Tools Like ChatGPT Can Help Pakistani Engineering Students (Ethically)</h3>
+          <p>Stop avoiding AI. Learn what ChatGPT is actually useful for, how to use it responsibly to improve your grades, and why employers expect you to know this.</p>
+          <a href="#" class="read-more">Read Strategy →</a>
+        </div>
+      </article>
+
+      <!-- STUDY GUIDES -->
+      <article class="blog-card" data-category="study-guides">
+        <div class="card-header">
+          <span class="tag tag-study-guides">Study Guides &amp; Tips</span>
+          <span class="date">Apr 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Prompt Engineering for Students: Get Better Answers From AI Tools</h3>
+          <p>The difference between useless AI answers and life-changing ones? How you ask the question. Learn 4 techniques that actually work for engineering study.</p>
+          <a href="#" class="read-more">Read Strategy →</a>
+        </div>
+      </article>
+
+      <!-- HEC ALERTS -->
+      <article class="blog-card" data-category="hec-alerts">
+        <div class="card-header">
+          <span class="tag tag-hec-policy">HEC &amp; Policy Updates</span>
+          <span class="date">Apr 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>AI in Pakistani Education: What's Changing in 2026</h3>
+          <p>HEC's new framework on AI-assisted learning and what it means for students, universities, and assessments going forward.</p>
+          <a href="#" class="read-more">Read Update →</a>
+        </div>
+      </article>
+
+      <!-- CAREER STRATEGY -->
+      <article class="blog-card" data-category="career-strategy">
+        <div class="card-header">
+          <span class="tag tag-career">Career Strategy</span>
+          <span class="date">Mar 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>How to Land an Engineering Internship in Pakistan With a Low GPA</h3>
+          <p>GPA isn't the only currency. Here's how to build a project portfolio, leverage LinkedIn, and get shortlisted despite a 2.5 CGPA.</p>
+          <a href="#" class="read-more">Read Strategy →</a>
+        </div>
+      </article>
+
+      <!-- GLOBAL NEWS -->
+      <article class="blog-card" data-category="global-news">
+        <div class="card-header">
+          <span class="tag tag-global-news">Global News</span>
+          <span class="date">Mar 2026</span>
+        </div>
+        <div class="card-body">
+          <h3>Top Countries Opening Skilled Worker Visas for Pakistani Graduates</h3>
+          <p>Germany, Canada, and the UAE are expanding their talent programs. Here's what Pakistani engineers need to qualify in 2026.</p>
+          <a href="#" class="read-more">Read News →</a>
+        </div>
+      </article>
+
+      <div class="empty-state" id="emptyState">No posts in this category yet. Check back soon.</div>
+
     </div>
-  </article>
+  </main>
 
-  <article class="blog-card" data-category="Announcements">
-    <div class="card-header"><span class="tag">Announcements</span><span class="date">Feb 2026</span></div>
-    <div class="card-body">
-      <h3>HEC Policy Update: New Attestation Guidelines</h3>
-      <p>Crucial updates on degree equivalence and digital attestation for 2026. Avoid delays in your international applications.</p>
-      <a href="/blog-post-2" class="read-more">Read Update →</a>
-    </div>
-  </article>
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer>
+    <p>© 2026 StudySmith. All rights reserved.</p>
+    <p style="margin-top:10px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
 
-  <article class="blog-card" data-category="Education News">
-    <div class="card-header"><span class="tag">Education News</span><span class="date">Jan 2026</span></div>
-    <div class="card-body">
-      <h3>The Rise of Digital Universities in Pakistan</h3>
-      <p>How the 2026 digital shift is changing the landscape of higher education and professional certification in the region.</p>
-      <a href="/blog-post-3" class="read-more">Read News →</a>
-    </div>
-  </article>
+  <!-- ══════════════════════════════════════
+       JS — hamburger + category filter
+  ════════════════════════════════════════ -->
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mainNav').classList.toggle('active');
+    });
 
-  <article class="blog-card" data-category="Student Tips">
-    <div class="card-header"><span class="tag">Student Tips</span><span class="date">Jan 2026</span></div>
-    <div class="card-body">
-      <h3>ATS CV Mastery: Passing the 6-Second Test</h3>
-      <p>Recruiters in 2026 spend less time than ever on your CV. Learn the structural logic required to bypass AI filters.</p>
-      <a href="/blog-post-4" class="read-more">Read Tips →</a>
-    </div>
-  </article>
+    // Category filter
+    const tabs      = document.querySelectorAll('.filter-btn');
+    const cards     = document.querySelectorAll('.blog-card');
+    const emptyState = document.getElementById('emptyState');
 
-<article class="blog-card" data-category="Study Guides & Tips">
-  <div class="card-header">
-    <span class="tag">Study Guides & Tips</span>
-    <span class="date">Apr 2026</span>
-  </div>
-  <div class="card-body">
-    <h3>How AI Tools Like ChatGPT Can Help Pakistani Engineering Students (Ethically)</h3>
-    <p>Stop avoiding AI. Learn what ChatGPT is actually useful for, how to use it responsibly to improve your grades, and why employers expect you to know this...</p>
-    <a href="blog-chatgpt-engineering-students.html" class="read-more">Read Strategy →</a>
-  </div>
-</article>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
 
-<article class="blog-card" data-category="Study Guides & Tips">
-  <div class="card-header">
-    <span class="tag">Study Guides & Tips</span>
-    <span class="date">Apr 2026</span>
-  </div>
-  <div class="card-body">
-    <h3>Prompt Engineering for Students: Get Better Answers From AI Tools</h3>
-    <p>The difference between useless AI answers and life-changing ones? How you ask the question. Learn 4 techniques that actually work for engineering study...</p>
-    <a href="blog-prompt-engineering-students.html" class="read-more">Read Strategy →</a>
-  </div>
-</article>
+        const filter = tab.dataset.filter;
+        let visible = 0;
 
-<article class="blog-card" data-category="HEC & Policy Updates">
-  <div class="card-header">
-    <span class="tag">HEC & Policy Updates</span>
-    <span class="date">Apr 2026</span>
-  </div>
-  <div class="card-body">
-    <h3>AI in Pakistani Education: What's Changing in 2026 and What You Need to Know</h3>
-    <p>Universities are adapting. HEC is setting rules. You need to stay ahead. Here's what's really happening in Pakistani engineering education and your career...</p>
-    <a href="blog-ai-education-trends.html" class="read-more">Read Strategy →</a>
-  </div>
-</article>
+        cards.forEach((card, i) => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          if (match) {
+            card.classList.remove('hidden');
+            card.style.animation = 'none';
+            card.offsetHeight; // force reflow
+            card.style.animation = `fadeUp 0.3s ease ${i * 0.04}s both`;
+            visible++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
 
-</div>
-
-<footer>
-  <p>© 2026 StudySmith Agency. All rights reserved.</p>
-  <div style="margin-top:15px; font-size:14px;">
-    <a href="/">Back to Home</a> | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
-  </div>
-</footer>
-
-<script>
-  function toggleMenu() { document.getElementById('mobile-nav').classList.toggle('active'); }
-
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.blog-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filterValue = btn.getAttribute('data-filter');
-      cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        card.style.display = (filterValue === 'all' || filterValue === category) ? 'flex' : 'none';
+        emptyState.classList.toggle('visible', visible === 0);
       });
     });
-  });
-</script>
-
-
-<!-- Cookie Consent Banner -->
-<div id="cookie-banner" style="position:fixed; bottom:0; left:0; right:0; background:#1f2937; color:#f9fafb; padding:16px 24px; z-index:9999; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:14px;">
-  <p style="margin:0; max-width:700px;">We use cookies to improve your experience and serve relevant ads via Google Ads and Analytics. By continuing to use this site, you agree to our <a href="privacy.html" style="color:#93c5fd;">Privacy Policy</a>.</p>
-  <button onclick="acceptCookies()" style="background:#2563eb; color:#fff; border:none; padding:10px 22px; border-radius:6px; cursor:pointer; font-weight:600; white-space:nowrap;">Accept &amp; Continue</button>
-</div>
-<script>
-function acceptCookies() {
-  localStorage.setItem("cookiesAccepted", "true");
-  document.getElementById("cookie-banner").style.display = "none";
-}
-window.addEventListener("load", function() {
-  if (!localStorage.getItem("cookiesAccepted")) {
-    document.getElementById("cookie-banner").style.display = "flex";
-  } else {
-    document.getElementById("cookie-banner").style.display = "none";
-  }
-});
-</script>
+  </script>
 
 </body>
 </html>
